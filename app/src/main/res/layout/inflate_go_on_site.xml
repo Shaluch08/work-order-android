@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_inflate_go_on_site"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_margin="10dp"
+
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+            android:paddingRight="15dp">
+
+            <ImageView
+                android:id="@+id/iv_inflate_go_on_site_attachment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                app:srcCompat="@drawable/ic_assignment"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_inflate_go_on_site_task_name"
+                style="@style/LargeText15"
+                android:layout_toRightOf="@+id/iv_inflate_go_on_site_attachment"
+                android:layout_below="@+id/tv_inflate_go_on_site_worker_name"
+                android:text="Catch up with Brain" />
+
+            <TextView
+                android:id="@+id/tv_inflate_go_on_site_worker_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/iv_inflate_go_on_site_attachment"
+                android:text="Worker Name" />
+
+            <CheckBox
+                android:id="@+id/ch_inflate_go_on_site"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:orientation="vertical"
+               android:buttonTint="@color/colorPrimary"
+               />
+
+
+
+
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

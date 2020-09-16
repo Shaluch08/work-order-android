@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_list_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/close"
+        android:background="@drawable/bg_circle"/>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:fontFamily="serif"
+        android:layout_toRightOf="@id/image"
+        android:text="List Item"
+        android:background="#FFFFFF"
+        android:textColor="@color/text"
+        android:textSize="13dp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+        />
+    <TextView
+        android:id="@+id/parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:fontFamily="serif"
+        android:layout_toRightOf="@id/text"
+        android:text=""
+        android:background="#FFFFFF"
+        android:textColor="@color/text"
+        android:textSize="13dp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+        />
+</RelativeLayout>

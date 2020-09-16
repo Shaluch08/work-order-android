@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.workorder.app.workorderapplication.activity.Asset4">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/appbarsix"
+        android:background="@color/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+<ScrollView
+    android:layout_below="@+id/appbarsix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/RL_Bottom"
+    >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/RLSupplierName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/tvSupplierName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Supplier Name"
+                    android:textSize="18sp"
+                    android:fontFamily="serif"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="5dp"/>
+
+                <Spinner
+                    android:id="@+id/spinner_supplierName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tvSupplierName"
+                    android:layout_marginLeft="10dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:spinnerMode="dropdown"></Spinner>
+
+            </RelativeLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/TILSupplierId"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/RLSupplierName">
+
+                <EditText
+                    android:id="@+id/supplierId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Supplier Id"
+                    android:textSize="18sp"
+                    android:inputType="number"
+                    android:fontFamily="serif"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/TILOrderNumber"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/RLSupplierName">
+
+                <EditText
+                    android:id="@+id/orderNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Order Number"
+                    android:textSize="18sp"
+                    android:fontFamily="serif"/>
+            </android.support.design.widget.TextInputLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/RLOldAsset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TILSupplierId"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/tvoldAsset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Old Asset"
+                    android:textSize="18sp"
+                    android:fontFamily="serif"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="5dp"/>
+
+                <Spinner
+                    android:id="@+id/spinner_oldAsset"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tvoldAsset"
+                    android:layout_marginLeft="10dp"
+                    android:spinnerMode="dropdown"></Spinner>
+
+            </RelativeLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/TILdateInstalled"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/RLOldAsset">
+
+                <EditText
+                    android:id="@+id/installed_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Date Installed"
+                    android:inputType="date"
+                    android:drawableRight="@drawable/date"
+                    android:textSize="18sp"
+                    android:maxLength="10"
+                    android:focusable="false"
+                    android:fontFamily="serif"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/TILreplacementDate"
+                android:layout_width="195dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/RLOldAsset">
+
+                <EditText
+                    android:id="@+id/replacement_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Replacement Date"
+                    android:inputType="date"
+                    android:drawableRight="@drawable/date"
+                    android:textSize="18sp"
+                    android:maxLength="10"
+                    android:focusable="false"
+                    android:fontFamily="serif"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/TILdateCommission"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/TILdateInstalled">
+
+                <EditText
+                    android:id="@+id/commissioned_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Date Commission"
+                    android:inputType="date"
+                    android:drawableRight="@drawable/date"
+                    android:textSize="18sp"
+                    android:maxLength="10"
+                    android:focusable="false"
+                    android:fontFamily="serif"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/TILDatedeCommission"
+                android:layout_width="195dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/TILdateInstalled">
+
+                <EditText
+                    android:id="@+id/commissioned_de_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Date De-Commission"
+                    android:inputType="date"
+                    android:drawableRight="@drawable/date"
+                    android:textSize="18sp"
+                    android:maxLength="10"
+                    android:focusable="false"
+                    android:fontFamily="serif"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/TILQualityLifeExpectency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/TILDatedeCommission">
+
+                <EditText
+                    android:id="@+id/quality_life_expectancy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Quality Life Expectancy"
+                    android:textSize="18sp"
+                    android:inputType="number"
+                    android:fontFamily="serif"/>
+            </android.support.design.widget.TextInputLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/RLComponent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TILQualityLifeExpectency"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Component Information"
+                    android:textSize="22sp"
+                    android:fontFamily="serif"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="5dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/RLSubComponent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/RLComponent"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/tvsubComponent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Component Information"
+                    android:textSize="18sp"
+                    android:fontFamily="serif"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="5dp"/>
+
+                <CheckBox
+                    android:id="@+id/sub_component"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorPrimaryDark"
+                    android:layout_toRightOf="@+id/tvsubComponent"
+                    android:layout_marginLeft="20dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/RLComponentAsset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/RLSubComponent"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/tvComponentAsset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Component of Asset"
+                    android:textSize="18sp"
+                    android:fontFamily="serif"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="5dp"/>
+
+                <Spinner
+                    android:id="@+id/spinner_componentAsset"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tvComponentAsset"
+                    android:layout_marginLeft="10dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:spinnerMode="dropdown"></Spinner>
+
+            </RelativeLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/TILDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/RLComponentAsset">
+
+                <EditText
+                    android:id="@+id/com_description1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Component Description"
+                    android:textSize="18sp"
+                    android:fontFamily="serif"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/TILdateCommission1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/TILDescription">
+
+                <EditText
+                    android:id="@+id/com_date_Commissioned"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Component Date Commission"
+                    android:inputType="date"
+                    android:drawableRight="@drawable/date"
+                    android:textSize="18sp"
+                    android:maxLength="10"
+                    android:focusable="false"
+                    android:fontFamily="serif"/>
+            </android.support.design.widget.TextInputLayout>
+
+
+
+        </RelativeLayout>
+
+    </FrameLayout>
+</ScrollView>
+
+
+    <RelativeLayout
+        android:id="@+id/RL_Bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom">
+
+            <Button
+                android:id="@+id/btn_previous"
+                android:background="@color/colorPrimary"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:elevation="20dp"
+                android:fontFamily="serif"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Back"
+                android:textAllCaps="true"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"/>
+
+
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@color/colorPrimary"
+                android:elevation="20dp"
+                android:fontFamily="serif"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Next"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

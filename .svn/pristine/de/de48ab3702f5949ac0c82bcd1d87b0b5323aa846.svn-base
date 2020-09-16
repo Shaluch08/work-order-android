@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:background="@mipmap/login_screen"
+    tools:context="com.workorder.app.fragment.ForgotPasswordFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/lock_reset"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="10dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:text="Forgot Password"
+        android:textColor="@color/white"
+        android:layout_below="@+id/img_logo"
+        android:textSize="33sp" />
+
+    <TextView
+        android:id="@+id/txt_back_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:text="Back to Login Screen"
+        android:textColor="@color/orange"
+        android:textSize="10pt" />
+
+    <Button
+        android:id="@+id/btn_submit_frgt"
+        style="@style/BlueButton"
+        android:layout_above="@+id/txt_back_login"
+        android:layout_marginBottom="20dp"
+        android:text="Submit" />
+
+    <EditText
+        android:id="@+id/et_email"
+        style="@style/CustomEditText"
+        android:layout_above="@+id/btn_submit_frgt"
+        android:layout_marginBottom="30dp"
+        android:hint="Registered Email ID"
+        android:textColorHint="@color/gray"
+        android:background="@drawable/edittext_bg"
+        android:drawableLeft="@drawable/ic_mail"
+        android:drawablePadding="5dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/et_email"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center_horizontal"
+        android:text="We just need your registered email id to send you password reset instruction."
+        android:textSize="18sp"
+        android:textColor="@color/gray"
+        />
+</RelativeLayout>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbg"
+    android:orientation="vertical"
+    tools:context="com.workorder.app.activity.LoginActivity">
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       >
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           >
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+
+               <RelativeLayout
+                   android:id="@+id/relative_above"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+
+                   <ImageView
+                       android:id="@+id/imageWork"
+                       android:layout_width="120dp"
+                       android:layout_height="120dp"
+                       android:layout_alignParentTop="true"
+                       android:layout_centerHorizontal="true"
+                       android:layout_marginTop="30dp"
+                       android:src="@drawable/logoicon" />
+
+                   <TextView
+                       android:id="@+id/tvWelcome"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@+id/imageWork"
+                       android:text="Welcome! Login To Your Account "
+                       android:textColor="#fff"
+                       android:gravity="center"
+                       android:fontFamily="serif"
+                       android:layout_marginTop="15dp"
+                       android:textSize="20dp"
+                       android:textStyle="bold"/>
+
+                   <View
+                       android:layout_width="200dp"
+                       android:layout_height="3dp"
+                       android:layout_centerInParent="true"
+                       android:layout_margin="5dp"
+                       android:background="#43e61a6b"
+                       android:layout_below="@+id/tvWelcome"/>
+
+               </RelativeLayout>
+
+               <EditText
+                   android:id="@+id/et_login_user_id"
+                   android:layout_width="match_parent"
+                   android:layout_height="60dp"
+                   android:layout_marginRight="20dp"
+                   android:layout_marginLeft="20dp"
+                   android:paddingLeft="5dp"
+                   android:fontFamily="serif"
+                   android:textColor="#ffffff"
+                   android:textSize="15sp"
+                   android:singleLine="true"
+                   android:drawableLeft="@drawable/personicon"
+                   android:textColorHint="#62ffffff"
+                   android:layout_centerInParent="true"
+                   android:hint="Username"
+                   android:layout_marginTop="70dp"
+                   android:layout_below="@+id/relative_above"
+                   android:background="@drawable/loginshape"/>
+
+               <EditText
+                   android:id="@+id/et_login_user_password"
+                   android:layout_width="match_parent"
+                   android:layout_height="60dp"
+                   android:layout_below="@+id/et_login_user_id"
+                   android:layout_centerInParent="true"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginTop="25dp"
+                   android:layout_marginRight="20dp"
+                   android:background="@drawable/loginshape"
+                   android:drawableLeft="@drawable/passwordlock"
+                   android:fontFamily="serif"
+                   android:hint="Password"
+                   android:textSize="15sp"
+                   android:singleLine="true"
+                   android:inputType="textWebPassword"
+                   android:paddingLeft="5dp"
+                   android:textColor="#ffffff"
+                   android:textColorHint="#66ffffff" />
+
+               <Button
+                   android:id="@+id/btn_login"
+                   android:layout_width="match_parent"
+                   android:layout_height="45dp"
+                   android:layout_below="@+id/et_login_user_password"
+                   android:layout_marginLeft="30dp"
+                   android:layout_marginTop="35dp"
+                   android:layout_marginRight="30dp"
+                   android:background="@drawable/buttonshape"
+                   android:text="Login"
+                   android:gravity="center"
+                   android:textAllCaps="false"
+                   android:textColor="#fff"
+                   android:textSize="25sp" />
+
+
+           </RelativeLayout>
+
+       </LinearLayout>
+
+   </ScrollView>
+ <!--   <TextView
+        android:id="@+id/DisPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:fontFamily="serif"
+        android:visibility="invisible"
+        android:layout_below="@+id/et_login_user_password"
+        android:textColor="@color/list_color"
+        android:text="TextView" />-->
+
+
+</LinearLayout>

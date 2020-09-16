@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_asset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="10dp">
+
+        <RelativeLayout
+            android:id="@+id/rl1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_border"
+            android:paddingBottom="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp">
+
+            <LinearLayout
+                android:id="@+id/lL1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="25dp"
+                    android:fontFamily="serif"
+                    android:text="Asset"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/asset_Name"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:fontFamily="serif"
+                    android:text="Water Pump"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lL2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="25dp"
+                    android:fontFamily="serif"
+                    android:text="Asset ID"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/asset_id"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:fontFamily="serif"
+                    android:text=""
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lL3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="25dp"
+                    android:fontFamily="serif"
+                    android:text="Client"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/client_Name"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:fontFamily="serif"
+                    android:text="Ahuja Pvt Ltd."
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lL4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/lL3"
+                android:layout_alignTop="@+id/lL6"
+                android:gravity="center"
+
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="25dp"
+                    android:fontFamily="serif"
+                    android:text="Asset Type"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/asset_type"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:fontFamily="serif"
+                    android:text=""
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lL5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_below="@+id/lL7"
+                android:layout_alignParentStart="true">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="26dp"
+                    android:fontFamily="serif"
+                    android:text="Asset Status"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/asset_status"
+                    android:layout_width="100dp"
+                    android:layout_height="39dp"
+                    android:fontFamily="serif"
+                    android:text="0"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lL6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/lL7"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="25dp"
+                    android:fontFamily="serif"
+                    android:text="Order Number"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/order_number"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:fontFamily="serif"
+                    android:text=""
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lL7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/lL1"
+                android:layout_marginTop="73dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="25dp"
+                    android:fontFamily="serif"
+                    android:text="Supplier"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/supplier_name"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:fontFamily="serif"
+                    android:text=""
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@id/lL8"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/lL5"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="5dp">
+
+                <ImageButton
+                    android:id="@+id/addWorker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:src="@drawable/workerlist"
+                    android:visibility="invisible" />
+
+                <ImageButton
+                    android:id="@+id/updateAsset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/addWorker"
+                    android:layout_marginLeft="30dp"
+                    android:background="#fff"
+                    android:src="@drawable/edit" />
+
+                <ImageButton
+                    android:id="@+id/deleteAsset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/updateAsset"
+                    android:layout_marginLeft="30dp"
+                    android:background="#fff"
+                    android:src="@drawable/delete" />
+                <ImageButton
+                    android:id="@+id/histroyWorkOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/deleteAsset"
+                    android:layout_marginLeft="10dp"
+                    android:background="#fff"
+                    android:src="@drawable/ic_history_black_24dp" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/colorAccent"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    app:layout_scrollFlags="scroll|enterAlways"
+    app:navigationIcon="@drawable/ic_menu"
+    android:alpha="0.8"
+    app:layout_collapseMode="pin">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- This is a centered logo -->
+        <ImageView
+            android:id="@+id/toolbar_logo"
+            android:src="@mipmap/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="?attr/actionBarSize"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center" />
+         <LinearLayout
+             android:id="@+id/ll_home_activity_go_on_site"
+             android:layout_width="100dp"
+             android:layout_height="wrap_content"
+             android:layout_gravity="right|center_vertical"
+             android:layout_marginRight="10dp"
+
+             >
+             <ImageView
+                 android:id="@+id/iv_home_activity_mapview"
+                 android:layout_width="25dp"
+                 android:layout_height="25dp"
+                 android:src="@drawable/ic_map_view"
+                 android:layout_gravity="center_vertical"
+                 />
+             <TextView
+                 android:id="@+id/tv_home_activity_go_on_site"
+                 android:layout_width="70dp"
+                 android:layout_height="30dp"
+                 android:text="On-Site"
+                 android:textColor="@color/white"
+                 android:textSize="15sp"
+                 android:gravity="center"
+                 android:padding="5dp"
+                 android:layout_marginLeft="5dp"
+                 android:background="@drawable/go_on_site_bg_design"
+
+                 />
+         </LinearLayout>
+
+                 </FrameLayout>
+</android.support.v7.widget.Toolbar>

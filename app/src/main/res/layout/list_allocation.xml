@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_asset"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        android:layout_margin="7dp"
+        app:cardMaxElevation="10dp"
+        >
+        <RelativeLayout
+            android:id="@+id/rl1"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:paddingBottom="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:background="@drawable/card_border">
+            <LinearLayout
+                android:id="@+id/lL1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="35dp"
+                    android:text="Worker Name"
+                    android:fontFamily="serif"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/work_name"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:fontFamily="serif"
+                    android:text=""
+                    android:textColor="@color/black"  />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lL2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:fontFamily="serif"
+                    android:layout_height="35dp"
+                    android:text="Trade Category"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/trade_cat"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:fontFamily="serif"
+                    android:text=""
+                    android:textColor="@color/black"  />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lL3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:fontFamily="serif"
+                    android:text="Working Hours"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/workingsHrs"
+                    android:layout_width="100dp"
+                    android:fontFamily="serif"
+                    android:layout_height="30dp"
+                    android:text=""
+                    android:textColor="@color/black" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lL6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/lL7"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="SWMS/SWP"
+                    android:textColor="@color/colorPrimaryDark"/>
+
+                <TextView
+                    android:id="@+id/swms"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:fontFamily="serif"
+                    android:text=""
+                    android:textColor="@color/black"  />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lL7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/lL1"
+                android:layout_marginTop="77dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="20dp"
+                    android:fontFamily="serif"
+                    android:text="Total Hours"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/total_hrs"
+                    android:layout_width="100dp"
+                    android:fontFamily="serif"
+                    android:layout_height="35dp"
+                    android:text=""
+                    android:textColor="@color/black"  />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@id/lL6"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="81dp">
+
+                <ImageButton
+                    android:id="@+id/addWorker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:src="@drawable/workerlist"
+                    android:visibility="invisible" />
+
+                <ImageButton
+                    android:id="@+id/updateworkOrderAllocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/addWorker"
+                    android:layout_marginLeft="40dp"
+                    android:background="#fff"
+                    android:src="@drawable/edit" />
+
+                <ImageButton
+                    android:id="@+id/deleteWorkOrderAllocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/updateworkOrderAllocation"
+                    android:layout_marginLeft="30dp"
+                    android:background="#fff"
+                    android:src="@drawable/delete" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

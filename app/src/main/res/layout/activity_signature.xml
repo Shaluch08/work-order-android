@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_bg"
+    android:orientation="vertical"
+    tools:context="com.workorder.app.activity.SignatureActivity">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <FrameLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorAccent"
+            tools:ignore="MissingConstraints">
+
+            <!-- This is a centered logo -->
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                app:srcCompat="@drawable/ic_arrow_back" />
+
+            <!--   <ImageView
+                   android:id="@+id/toolbar_logo"
+                   android:src="@mipmap/logo"
+                   android:layout_width="wrap_content"
+                   android:layout_height="fill_parent"
+                   android:layout_marginTop="5dp"
+                   android:layout_marginBottom="5dp"
+                   android:layout_gravity="center" />-->
+            <TextView
+                android:id="@+id/tv_activity_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Signature Screen"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </FrameLayout>
+        <LinearLayout
+            android:id="@+id/checklinear"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/signature"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/ch_signature"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:buttonTint="@color/colorAccent"
+                android:shadowColor="@color/black"
+                android:textColorHint="@color/blueTheme" />
+
+            <TextView
+                android:id="@+id/sms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please enter your signature in the space below. "
+                android:textColor="@color/blueTheme" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            >
+            <CheckBox
+                android:id="@+id/ch_sign_as_worker"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorAccent"
+                android:text="Sign as a Worker"
+                android:textColor="@color/colorAccent" />
+            <CheckBox
+                android:id="@+id/ch_sign_as_observer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorAccent"
+                android:text="Sign as an Observer"
+                android:textColor="@color/colorAccent" />
+
+
+
+
+        </LinearLayout>
+
+        <com.workorder.app.util.Signature
+            android:id="@+id/signature"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_margin="20dp"
+            android:layout_below="@+id/toolbar"
+            android:background="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_marginBottom="30dp"
+        android:layout_gravity="bottom"
+    >
+
+        <Button
+            android:id="@+id/btn_clear_signature"
+            style="@style/BlueButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:text="Clear" />
+
+        <Button
+            android:id="@+id/btn_submit_signature"
+            style="@style/BlueButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:text="Submit" />
+    </LinearLayout>
+
+
+</FrameLayout>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.workorder.app.workorderapplication.activity.UpdateWorkOrder1">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:id="@+id/appBarLayout"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="20dp"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="85dp">
+                <ImageView
+                    android:id="@+id/tree"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/tree"
+                    android:visibility="visible"/>
+            </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+    <ScrollView
+        android:layout_above="@+id/RLBackNext"
+        android:layout_below="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/ETLClientOrderNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="5dp"
+                    android:elevation="10dp">
+
+                    <EditText
+                        android:id="@+id/update_client_order_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Client Order Number"
+                        android:textSize="18sp"
+                        android:fontFamily="serif"/>
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/ETLCost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ETLClientOrderNo"
+                    android:layout_marginTop="5dp"
+                    android:elevation="10dp">
+
+                    <EditText
+                        android:id="@+id/et_est_wo_cost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Estimated WO Cost"
+                        android:textSize="18sp"
+                        android:fontFamily="serif"/>
+                </android.support.design.widget.TextInputLayout>
+                <RelativeLayout
+                    android:id="@+id/RlProcessType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ETLCost"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/tvProcesstype"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Process Type"
+                        android:textSize="18sp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginLeft="5dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_process_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tvProcesstype"
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignParentTop="true"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:layout_marginBottom="3dp"
+                        android:spinnerMode="dropdown"></Spinner>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/RLOrignalOrderNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/RlProcessType"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/tvOrignalOrder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Orignal Order No."
+                        android:textSize="18sp"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+                    <Spinner
+                        android:id="@+id/update_spinner_original_order_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tvOrignalOrder"
+                        android:layout_marginLeft="5dp"
+                        android:layout_alignParentTop="true"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:spinnerMode="dropdown"></Spinner>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/RLActualcost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/RLOrignalOrderNo">
+
+                    <TextView
+                        android:id="@+id/tvActual"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Actual WO Cost"
+                        android:textSize="18sp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+
+                    <TextView
+                        android:id="@+id/tvAct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="18sp"
+                        android:fontFamily="serif"
+                        android:textColor="#000"
+                        android:layout_toRightOf="@+id/tvActual"
+                        android:layout_marginLeft="10dp"/>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/RLRequestedby"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/RLActualcost"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/tvRequestby"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Requested By"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+                    <Spinner
+                        android:id="@+id/update_spinner_requested_by"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tvRequestby"
+                        android:layout_marginLeft="5dp"
+                        android:layout_alignParentTop="true"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:spinnerMode="dropdown"></Spinner>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/RLApproval"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/RLRequestedby"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/tvClientApproval"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Client Approval"
+                        android:textSize="18sp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginLeft="5dp"/>
+
+                    <CheckBox
+                        android:id="@+id/update_client_approval"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tvClientApproval"
+                        android:buttonTint="@color/colorPrimaryDark"
+                        android:layout_marginLeft="20dp" />
+
+                </RelativeLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/ETLClientApprovaldate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/RLApproval"
+                    android:layout_marginTop="10dp">
+
+                    <EditText
+                        android:id="@+id/update_client_approval_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="client Approval Date"
+                        android:textSize="18sp"
+                        android:textColor="#000"
+                        android:inputType="date"
+                        android:focusable="false"
+                        android:drawableRight="@drawable/date"
+                        android:fontFamily="serif"
+                        />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <RelativeLayout
+                    android:id="@+id/RLApprovalby"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ETLClientApprovaldate"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/tvApprovalby"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Client Approval By"
+                        android:textSize="18sp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+                    <Spinner
+                        android:id="@+id/update_spinner_client_approval_by"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tvApprovalby"
+                        android:layout_marginLeft="5dp"
+                        android:layout_alignParentTop="true"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:spinnerMode="dropdown"></Spinner>
+
+                </RelativeLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/TILApprovalby"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/RLApprovalby">
+
+                    <EditText
+                        android:id="@+id/update_txt_scope_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Scop/Description"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </RelativeLayout>
+
+        </FrameLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/RLBackNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom">
+
+            <Button
+                android:id="@+id/update_btn_previous"
+                android:background="@color/colorPrimary"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="20dp"
+                android:fontFamily="serif"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Back"
+                android:textAllCaps="true"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"/>
+
+
+            <Button
+                android:id="@+id/update_btn_next"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@color/colorPrimary"
+                android:elevation="20dp"
+                android:fontFamily="serif"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Next"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

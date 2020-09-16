@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/toolbar">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#e4e4e4"
+        android:clickable="true"
+        android:orientation="vertical"
+        tools:context="com.example.clearmobile.clearmobile.home.MainActivity">
+
+        <View
+            android:layout_width=".5dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/img_profile"
+            android:layout_marginLeft="40dp"
+            android:background="@color/black" />
+
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/toolbar"
+
+            app:civ_border_color="@color/white"
+            app:civ_border_width="0.5dp"
+            android:layout_margin="20dp"
+            />
+
+        <TextView
+            android:id="@+id/txt_name"
+            style="@style/LargeText15"
+            android:layout_below="@+id/toolbar"
+            android:layout_toRightOf="@+id/img_profile"
+            android:layout_marginTop="40dp"
+            android:text="Jhon Doye"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            />
+        <TextView
+            style="@style/LargeText15"
+            android:layout_below="@+id/txt_name"
+            android:layout_toRightOf="@+id/img_profile"
+            android:layout_marginTop="5dp"
+            android:text="Designation"
+            android:textColor="@color/white"
+
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_task_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_profile"></android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+</FrameLayout>

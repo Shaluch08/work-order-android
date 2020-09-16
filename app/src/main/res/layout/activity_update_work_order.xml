@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.workorder.app.workorderapplication.activity.UpdateWorkOrder">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:id="@+id/appbar"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="20dp"
+            android:translationZ="5dp"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="85dp">
+                <ImageView
+                    android:id="@+id/tree"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/tree"
+                    android:visibility="visible"/>
+            </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/RLClent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appbar"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentLeft="true"
+        android:elevation="10dp">
+
+        <TextView
+            android:id="@+id/tvClientName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Client:"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/colorPrimaryDark"/>
+
+        <Spinner
+            android:id="@+id/update_spinner_client"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tvClientName"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentTop="true"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:spinnerMode="dropdown">
+        </Spinner>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLClientNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLClent"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tvClinetNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Client Number:"
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"/>
+
+        <TextView
+            android:id="@+id/update_client_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tvClinetNo"
+            android:layout_marginLeft="10dp"
+            android:text="56"
+            android:textStyle="italic"
+            android:textColor="#000"
+            android:textSize="16sp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLpurchase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLClientNo"
+        android:layout_marginTop="10dp"
+        android:elevation="10dp">
+
+        <TextView
+            android:id="@+id/tvPurchase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Purchase Order No."
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginLeft="5dp"/>
+
+        <Spinner
+            android:id="@+id/update_spinner_purchase_order_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tvPurchase"
+            android:layout_alignParentTop="true"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:spinnerMode="dropdown">
+
+        </Spinner>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLWorkOrderNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLpurchase"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tvWorkOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Work Order No.:"
+            android:textSize="18dp"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"/>
+
+        <TextView
+            android:id="@+id/update_work_order_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tvWorkOrder"
+            android:layout_marginLeft="10dp"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:textColor="#000"
+            android:text="54"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLAsset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLWorkOrderNo"
+        android:elevation="10dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tvAsset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Asset Id:"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginLeft="5dp"/>
+
+        <Spinner
+            android:id="@+id/update_spinner_asset_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tvAsset"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentTop="true"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:spinnerMode="dropdown"></Spinner>
+
+    </RelativeLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLAsset"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/TILdate">
+
+        <EditText
+            android:id="@+id/update_raised_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Raised Date"
+            android:drawableRight="@drawable/date"
+            android:inputType="date"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/TILdate"
+        android:layout_below="@+id/RLAsset"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/TILdueDate">
+
+        <EditText
+            android:id="@+id/update_due_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Due Date"
+            android:drawableRight="@drawable/date"
+            android:inputType="date"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLWarningLevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TILdueDate"
+        android:elevation="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp">
+
+        <TextView
+            android:id="@+id/tvWarning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Warning Level:"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"/>
+
+        <Spinner
+            android:id="@+id/update_spinner_warning_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tvWarning"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_alignParentTop="true"
+            android:spinnerMode="dropdown">
+
+        </Spinner>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLOrderStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLWarningLevel"
+        android:elevation="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp">
+
+        <TextView
+            android:id="@+id/tvOrderstatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Status:"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"/>
+
+        <Spinner
+            android:id="@+id/update_spinner_order_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tvOrderstatus"
+            android:spinnerMode="dropdown"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp">
+
+        </Spinner>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLPriority"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLOrderStatus"
+        android:elevation="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp">
+
+        <TextView
+            android:id="@+id/tvpriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Priority:"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"/>
+
+        <Spinner
+            android:id="@+id/update_spinner_priority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tvpriority"
+            android:spinnerMode="dropdown"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp">
+
+        </Spinner>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLPriority"
+        android:elevation="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp">
+
+        <TextView
+            android:id="@+id/tvtype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Type:"
+            android:textSize="18dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"/>
+
+        <Spinner
+            android:id="@+id/update_spinner_order_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tvtype"
+            android:spinnerMode="dropdown"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp">
+
+        </Spinner>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom">
+
+            <Button
+                android:id="@+id/update_btn_previous"
+                android:background="@color/colorPrimary"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="20dp"
+                android:fontFamily="serif"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Back"
+                android:textAllCaps="true"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"/>
+
+
+            <Button
+                android:id="@+id/update_btn_next"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@color/colorPrimary"
+                android:elevation="20dp"
+                android:fontFamily="serif"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Next"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

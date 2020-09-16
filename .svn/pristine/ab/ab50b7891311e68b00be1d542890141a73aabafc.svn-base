@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.workorder.app.workorderapplication.activity.Asset6">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/appbarSeven"
+        android:background="@color/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_below="@+id/appbarSeven"
+       android:layout_above="@+id/RL_Bottom"
+       android:layout_marginBottom="10dp"
+       >
+       <FrameLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/TILpartsWarrantyEntered"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="5dp"
+                   android:layout_alignParentRight="true"
+                  >
+
+                   <EditText
+                       android:id="@+id/et_entered_by"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:hint="Parts Warranty Entered By"
+                       android:textSize="18sp"
+                       android:fontFamily="serif"/>
+               </android.support.design.widget.TextInputLayout>
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/TILpartsWarrantyEntereddate"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:layout_below="@+id/TILpartsWarrantyEntered">
+
+                   <EditText
+                       android:id="@+id/et_pw_date_enter"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:hint="Parts Warranty Entered Date"
+                       android:drawableRight="@drawable/date"
+                       android:inputType="date"
+                       android:textSize="18sp"
+                       android:maxLength="10"
+                       android:focusable="false"
+                       android:fontFamily="serif"/>
+               </android.support.design.widget.TextInputLayout>
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/TILlabourWarrantyStart"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:layout_below="@+id/TILpartsWarrantyEntereddate">
+
+                   <EditText
+                       android:id="@+id/et_lw_start"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:hint="Labour Warranty Start"
+                       android:drawableRight="@drawable/date"
+                       android:inputType="date"
+                       android:textSize="18sp"
+                       android:maxLength="10"
+                       android:focusable="false"
+                       android:fontFamily="serif"/>
+               </android.support.design.widget.TextInputLayout>
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/TILlabourWarrantyEnd"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:layout_below="@+id/TILlabourWarrantyStart">
+
+                   <EditText
+                       android:id="@+id/et_lw_end"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:hint="Labour Warranty End"
+                       android:drawableRight="@drawable/date"
+                       android:inputType="date"
+                       android:textSize="18sp"
+                       android:maxLength="10"
+                       android:focusable="false"
+                       android:fontFamily="serif"/>
+               </android.support.design.widget.TextInputLayout>
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/TILWarrantycomment"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:layout_below="@+id/TILlabourWarrantyEnd">
+
+                   <EditText
+                       android:id="@+id/et_warranty_comments"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:hint="Warranty Comment"
+                       android:textSize="18sp"
+                       android:fontFamily="serif"/>
+               </android.support.design.widget.TextInputLayout>
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/TILlabourWarrantyEnteredby"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:layout_below="@+id/TILWarrantycomment">
+
+                   <EditText
+                       android:id="@+id/et_lw_enteredBy"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:hint="Labour Warranty Entered By"
+                       android:textSize="18sp"
+                       android:fontFamily="serif"/>
+               </android.support.design.widget.TextInputLayout>
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/TILlabourWarrantyDateEntered"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:layout_below="@+id/TILlabourWarrantyEnteredby">
+
+                   <EditText
+                       android:id="@+id/et_lw_date_enter"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:hint="Labour Warranty Date Entered"
+                       android:drawableRight="@drawable/date"
+                       android:inputType="date"
+                       android:textSize="18sp"
+                       android:maxLength="10"
+                       android:focusable="false"
+                       android:fontFamily="serif"/>
+               </android.support.design.widget.TextInputLayout>
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/TILDrawingNumber"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:layout_below="@+id/TILlabourWarrantyDateEntered">
+
+                   <EditText
+                       android:id="@+id/et_drawing_number"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:hint="Drawing Number"
+                       android:textSize="18sp"
+                       android:inputType="text|number"
+                       android:fontFamily="serif"/>
+               </android.support.design.widget.TextInputLayout>
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/TILOmlink"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:layout_below="@+id/TILDrawingNumber">
+
+                   <EditText
+                       android:id="@+id/et_om_link"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:hint="OM Link"
+                       android:textSize="18sp"
+                       android:fontFamily="serif"/>
+               </android.support.design.widget.TextInputLayout>
+           </RelativeLayout>
+       </FrameLayout>
+   </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/RL_Bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom">
+
+            <Button
+                android:id="@+id/btn_previous"
+                android:background="@color/colorPrimary"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:elevation="20dp"
+                android:fontFamily="serif"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Back"
+                android:textAllCaps="true"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"/>
+
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@color/colorPrimary"
+                android:elevation="20dp"
+                android:fontFamily="serif"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Create"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+<!--
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create"
+            android:fontFamily="serif"
+            android:layout_alignParentRight="true"
+            android:textAllCaps="false"
+            android:textSize="16dp"
+            android:elevation="20dp"
+            android:background="@drawable/shape"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="#fff"/>-->
+    </RelativeLayout>
+
+</RelativeLayout>

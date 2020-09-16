@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.workorder.app.workorderapplication.activity.Asset1">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/appBarLayout6">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appBarLayout6"
+        android:layout_marginBottom="60dp"
+        >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/RLcontracttype"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/tvcontractType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Contract Type*"
+                        android:textSize="18sp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginLeft="5dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_contract_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tvcontractType"
+                        android:layout_marginLeft="10dp"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:spinnerMode="dropdown"></Spinner>
+
+                </RelativeLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/TILAssetCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/RLcontracttype">
+
+                    <EditText
+                        android:id="@+id/asset_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Asset Code"
+                        android:textSize="18sp"
+                        android:singleLine="true"
+                        android:fontFamily="serif"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/TILAssetComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/TILAssetCode">
+
+                    <EditText
+                        android:id="@+id/asset_comments"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:hint="Asset Comment"
+                        android:inputType="textLongMessage"
+                        android:textSize="18sp" />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/RLAssetCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/TILAssetComment"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/tvAssetCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Asset Category*"
+                        android:textSize="18sp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginLeft="5dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_asset_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tvAssetCategory"
+                        android:layout_marginLeft="10dp"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:spinnerMode="dropdown"></Spinner>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/RLSubCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/RLAssetCategory"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/tvSubCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sub Category"
+                        android:textSize="18sp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginLeft="5dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_sub_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tvSubCategory"
+                        android:layout_marginLeft="10dp"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:spinnerMode="dropdown"></Spinner>
+
+                </RelativeLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/TILconditionDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/RLSubCategory">
+
+                    <EditText
+                        android:id="@+id/condition_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Condition Date*"
+                        android:inputType="date"
+                        android:drawableRight="@drawable/date"
+                        android:textSize="18sp"
+                        android:maxLength="10"
+                        android:focusable="false"
+                        android:fontFamily="serif"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <RelativeLayout
+                    android:id="@+id/RLAssetCondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/TILconditionDate"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/tvAssetCondition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Asset Condition*"
+                        android:textSize="18sp"
+                        android:fontFamily="serif"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginLeft="5dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_asset_condition"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tvAssetCondition"
+                        android:layout_marginLeft="10dp"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:spinnerMode="dropdown"></Spinner>
+
+                </RelativeLayout>
+
+              <!--  <android.support.design.widget.TextInputLayout
+                    android:id="@+id/TLRegion"
+                    android:layout_below="@+id/RLAssetCondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    >
+
+                    <EditText
+                        android:id="@+id/et_asset_up_region"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Region"
+                        android:singleLine="true"
+                        android:inputType="number|text"
+                        android:fontFamily="serif"/>
+                </android.support.design.widget.TextInputLayout>-->
+
+
+
+
+                <!--  <RelativeLayout
+                      android:id="@+id/RLArea"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/TLSubRegion"
+                      android:layout_marginTop="5dp">
+
+                      <TextView
+                          android:id="@+id/tvArea"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Area*"
+                          android:textSize="18sp"
+                          android:fontFamily="serif"
+                          android:textColor="@color/colorPrimaryDark"
+                          android:layout_marginLeft="5dp"/>
+
+                      <Spinner
+                          android:id="@+id/spinner_area"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_toRightOf="@+id/tvArea"
+                          android:layout_marginLeft="10dp"
+                          android:backgroundTint="@color/colorPrimaryDark"
+                          android:spinnerMode="dropdown"></Spinner>
+
+                  </RelativeLayout>-->
+
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/asset_address1"
+                    android:layout_below="@+id/RLAssetCondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:hint="Address1*"
+                    android:background="@null"
+                    android:backgroundTint="@null"
+                    android:inputType="textLongMessage"
+                    />
+    <!--            <AutoCompleteTextView
+                    android:id="@+id/asset_address2"
+                    android:layout_below="@+id/asset_address1"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:hint="Address2"
+                    android:background="@null"
+                    android:backgroundTint="@null"
+
+                    android:inputType="textLongMessage"
+                    />-->
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/TL_location_id"
+                    android:layout_below="@+id/asset_address1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    >
+
+                    <EditText
+                        android:id="@+id/et_asset_up_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Location"
+                        android:singleLine="true"
+                        android:inputType="number|text"
+                        android:fontFamily="serif"/>
+                </android.support.design.widget.TextInputLayout>
+                <LinearLayout
+                    android:id="@+id/LLBuilding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/TL_location_id"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_weight="1"
+                        android:id="@+id/regi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+
+                        >
+
+                        <EditText
+                            android:id="@+id/asset_building_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Bulding Name*"
+                            android:textSize="18sp"
+                            android:fontFamily="serif"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_weight="1"
+                        android:id="@+id/TILRoom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_alignParentRight="true"
+                        >
+
+                        <EditText
+                            android:id="@+id/asset_room"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Room*"
+                            android:textSize="18sp"
+                            android:fontFamily="serif"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/TILCity"
+                    android:layout_below="@+id/LLBuilding"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <EditText
+                            android:id="@+id/asset_city"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="City"
+                            android:singleLine="true"
+                            android:inputType="text"
+                            android:fontFamily="serif"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/TILState"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <EditText
+                            android:id="@+id/asset_state"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="State"
+                            android:singleLine="true"
+
+                            android:inputType="text"
+                            android:fontFamily="serif"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+                 <LinearLayout
+                    android:id="@+id/TILPostCode"
+                    android:layout_below="@+id/TILCity"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        >
+
+                        <EditText
+                            android:id="@+id/asset_post_code"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Post Code"
+                            android:singleLine="true"
+                            android:inputType="number"
+                            android:fontFamily="serif"/>
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginLeft="5dp"
+                        >
+
+                        <EditText
+                            android:id="@+id/asset_country"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Country"
+                            android:inputType="number"
+                            android:singleLine="true"
+                            android:fontFamily="serif"/>
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+          <!--      <android.support.design.widget.TextInputLayout
+                    android:id="@+id/TILPostCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/TILState"
+                    android:layout_marginLeft="5dp"
+                    >
+
+                    <EditText
+                        android:id="@+id/asset_post_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Post Code"
+                        android:inputType="number"
+                        android:fontFamily="serif"/>
+                </android.support.design.widget.TextInputLayout>-->
+                <LinearLayout
+                    android:id="@+id/ll_region_area"
+                    android:layout_below="@+id/TILPostCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_weight="1"
+                        android:id="@+id/TLSubRegion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/RLAssetCondition"
+                        android:layout_marginTop="5dp">
+
+                        <EditText
+                            android:id="@+id/et_asset_up_sub_region"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Sub Region"
+                            android:singleLine="true"
+                            android:inputType="number|text"
+                            android:fontFamily="serif"/>
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_weight="1"
+                        android:id="@+id/TLArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_below="@id/TLSubRegion"
+                        >
+
+                        <EditText
+                            android:id="@+id/et_asset_up_area"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Area"
+                            android:inputType="number|text"
+                            android:singleLine="true"
+                            android:fontFamily="serif"/>
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_lat_lng"
+                    android:layout_below="@+id/ll_region_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        >
+
+                        <EditText
+                            android:id="@+id/et_asset_longitude"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Longitude"
+                            android:maxLength="8"
+                            android:inputType="numberDecimal"
+                            android:fontFamily="serif"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+
+
+
+            </RelativeLayout>
+
+        </FrameLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom">
+
+            <Button
+                android:id="@+id/btn_previous"
+                android:background="@color/colorPrimary"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:elevation="20dp"
+                android:fontFamily="serif"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Back"
+                android:textAllCaps="true"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"/>
+
+
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@color/colorPrimary"
+                android:elevation="20dp"
+                android:fontFamily="serif"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Next"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+   </RelativeLayout>

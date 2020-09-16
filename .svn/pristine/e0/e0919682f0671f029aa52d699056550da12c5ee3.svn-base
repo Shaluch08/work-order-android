@@ -1,0 +1,160 @@
+package com.workorder.app.adapter;
+
+import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.workorder.app.R;
+import com.workorder.app.Util;
+import com.workorder.app.pojo.docPOJO.AttachementPOJO;
+import com.workorder.app.pojo.survey.SurveyPOJO;
+import com.workorder.app.webservicecallback.OnTaskCompleted;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class SurveyAdapter extends RecyclerView.Adapter<SurveyAdapter.QuestionListAdapter> {
+
+
+    Context context;
+    List<SurveyPOJO> attachementPOJOList;
+    private RatingSelectionInterface ratingSelectionInterface;
+    int pos;
+    public static String srValue;
+    private Map<String,String> map=new HashMap<>();
+
+    public SurveyAdapter(Context context, List<SurveyPOJO> attachementPOJOList,int pos,RatingSelectionInterface ratingSelectionInterface,Map<String,String> map) {
+        this.context = context;
+        this.attachementPOJOList=attachementPOJOList;
+        this.pos=pos;
+        this.ratingSelectionInterface=ratingSelectionInterface;
+        this.map=map;
+    }
+
+
+
+
+    @NonNull
+    @Override
+    public QuestionListAdapter onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.survey_adapter, parent, false);
+
+        return new QuestionListAdapter(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull QuestionListAdapter holder, final int position) {
+
+        try {
+
+            holder.ques.setText("Q." + attachementPOJOList.get(pos).getTitle());
+
+            RadioButton[] rb = new RadioButton[attachementPOJOList.get(pos).getSurveyquestPOJOS().size()];
+
+            for (int i = 0; i < attachementPOJOList.get(pos).getSurveyquestPOJOS().size(); i++) {
+                rb[i] = new RadioButton(context);
+                holder.radioGroup.addView(rb[i]);
+                rb[i].setText(attachementPOJOList.get(pos).getSurveyquestPOJOS().get(i).getTitle());
+            }
+
+            for (Map.Entry mEntry: map.entrySet())
+            {
+                if (mEntry.getKey().equals(attachementPOJOList.get(pos).getQuestionID()))
+                {
+                    try {
+                        String srValue=mEntry.getValue().toString();
+                        String selecion=  Util.before(srValue,",");
+
+                        for (int i = 0; i < attachementPOJOList.get(pos).getSurveyquestPOJOS().size(); i++) {
+                            Log.v("value",selecion+"    "+attachementPOJOList.get(pos).getSurveyquestPOJOS().get(i).getTitle());
+
+                            if(attachementPOJOList.get(pos).getSurveyquestPOJOS().get(i).getTitle().equalsIgnoreCase(selecion)){
+                                rb[i].setChecked(true);
+                            }                        }
+
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            Log.v("map",map.toString());
+
+
+
+
+
+
+
+
+        }catch (Exception e){
+
+        }
+    }
+
+    @Override
+    public int getItemCount() {
+        return 1;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
+
+    public class QuestionListAdapter extends RecyclerView.ViewHolder implements RadioGroup.OnCheckedChangeListener{
+        TextView ques;
+        RadioGroup radioGroup;
+        LinearLayout next;
+
+        public QuestionListAdapter(@NonNull View itemView) {
+            super(itemView);
+            ques = itemView.findViewById(R.id.ques);
+            radioGroup = itemView.findViewById(R.id.radiogroup);
+            radioGroup.setOnCheckedChangeListener(this);
+        }
+
+        @Override
+        public void onCheckedChanged(RadioGroup group, int i) {
+            int index = getLayoutPosition();
+            if (radioGroup.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(context, "Please select answer", Toast.LENGTH_LONG).show();
+            } else {
+                try {
+                    int radioButtonId = group.getCheckedRadioButtonId();
+                    View radio = group.findViewById(radioButtonId);
+                    int position = group.indexOfChild(radio);
+                    RadioButton butt = (RadioButton) radioGroup.getChildAt(position);
+                    String  selection = (String) butt.getText();
+                    Log.e("Selected", "" + selection);
+                    ratingSelectionInterface.itemselect(attachementPOJOList.get(pos).getQuestionID(), selection, attachementPOJOList.get(pos).getSurveyAID(), attachementPOJOList.get(pos).getSurveyID(), attachementPOJOList.get(pos).getSurveyquestPOJOS().get(pos).getSurveyQID(),radioButtonId);
+                    Log.v("score", ratingSelectionInterface.toString());
+
+                } catch (Exception e) {
+
+                }
+
+
+            }
+        }
+    }
+
+    public interface RatingSelectionInterface {
+        void itemselect( String questionID ,String answerID,String surveyAnswerID, String surveyID, String SurveyorIDt,int rd);
+        void itemUnSelect(int questionID);
+    }
+
+}

@@ -1,0 +1,289 @@
+<resources>
+    <string name="app_name">Clear Work Order</string>
+
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="declined_text">You have sucessfully Declined this work Order</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <string name="user_id">USER ID</string>
+    <string name="password">PASSWORD</string>
+    <string name="sign_in">Sign In</string>
+    <string name="forgot">Forgot Your Password</string>
+    <string name="submit">Submit</string>
+    <string name="open_drawer">Open</string>
+    <string name="close_drawer">Close</string>
+    <string name="home">Work Order</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string-array name="contact">
+        <item>Please Select</item>
+    </string-array>
+    <!--Dashboard of FM-->
+    <string name="dashboard">DASHBOARD</string>
+    <string name="all_company">ALL COMPANIES</string>
+    <string name="po">PURCHASE ORDER</string>
+    <string name="assets">ASSETS</string>
+    <string name="wo">WORK ORDER</string>
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_item_activity_titles">
+        <item>Dashboard</item>
+        <item>Setting</item>
+        <item>PurchaseOrder</item>
+        <item>Asset</item>
+        <item>Work Order</item>
+        <item>Administrator</item>
+        <item>Help</item>
+    </string-array>
+    <!--Work_Order Of Details-->
+    <string name="new_work_order">NEW WORK ORDER</string>
+    <string name="client">Client</string>
+    <string name="select_client">Select Client</string>
+    <string name="client_no">Client No</string>
+    <string name="purchase_order_no">Purchase Order No</string>
+    <string name="work_order_no">Work Order No</string>
+    <string name="date_raised">Date Raised</string>
+    <string name="due_date">Due Date</string>
+    <string name="warning_level">Warning Level</string>
+    <string name="order_status">Order Status</string>
+    <string name="priority">Priority</string>
+    <string name="order_type">Order Type</string>
+    <string name="client_order_no">Client Order No</string>
+    <string name="original_order_no">Original Order No</string>
+    <string name="requested_by">Requested By*</string>
+    <string name="client_approval_date">Client Approval Date</string>
+    <string name="client_approval_by">Client Approval By</string>
+    <string name="client_approval">Client Approval</string>
+    <string name="scope_description">Scope-Description</string>
+
+    <string name="location_details">LOCATION DETAILS</string>
+    <string name="region">Region</string>
+    <string name="sub_region">Sub Region</string>
+    <string name="area">Area</string>
+    <string name="location">Location</string>
+    <string name="building_name">Building Name</string>
+    <string name="floor">Floor</string>
+    <string name="room_no">Room No</string>
+    <string name="asset_id">Asset Id</string>
+    <string name="address">Address</string>
+    <string name="address2">Address 2</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="post_code">Post Code</string>
+    <string name="country">Country</string>
+    <string name="previous">Back To List</string>
+    <string name="next">Next</string>
+    <string name="contact_and_contractor_information">CONTACT AND CONTRACTOR INFORMATION</string>
+    <string name="contractor_assi">Contractor Assi</string>
+    <string name="contact_person">Contact Person</string>
+    <string name="phone">Phone</string>
+    <string name="mobile">Mobile</string>
+    <string name="email">Email</string>
+    <string name="assigned_date">Assigned Date</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="authorised_cost">Authorised Cost</string>
+    <string name="authorised_hour">Authorised Hour</string>
+
+
+    <string-array name="client_array">
+        <item>Select Client</item>
+        <item>Uveous Technologies</item>
+        <item>ABC Software</item>
+    </string-array>
+    <string-array name="po_array">
+        <item>Select PO Number</item>
+        <item>PO NO 001</item>
+        <item>PO NO 002</item>
+        <item>PO NO 003</item>
+        <item>PO NO 004</item>
+        <item>PO NO 005</item>
+    </string-array>
+
+    <string-array name="level_array">
+        <item>Select Warning Level</item>
+        <item>Ok Test</item>
+        <item>Server</item>
+        <item>Fatal</item>
+    </string-array>
+    <string-array name="order_array">
+        <item>Select Order Status</item>
+        <item>Initial Entry</item>
+        <item>Work Order Raised</item>
+    </string-array>
+    <string-array name="priority_array">
+        <item>Select Priority</item>
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+    <string-array name="order_type_array">
+        <item>
+            Please Order Type
+        </item>
+        <item>Reactive</item>
+        <item>Domestic</item>
+        <item>Scheduled</item>
+    </string-array>
+    <string-array name="original_order_array">
+        <item>Select Original Order No</item>
+        <item>001</item>
+        <item>002</item>
+    </string-array>
+    <string-array name="requested_array">
+        <item>Select Request By</item>
+    </string-array>
+    <string name="title_activity_main">Work Order</string>
+
+
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_setting">Setting</string>
+    <string name="nav_purchase_order">Purchase Order</string>
+    <string name="nav_asset">Asset</string>
+    <string name="nav_work_order">Work Order</string>
+    <string name="nav_administrator">Administrator</string>
+    <string name="nav_help">Help</string>
+    <string name="nav_other">Other</string>
+    <string name="nav_logout">Logout</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+
+    <!--Asset Module of WorkOrder-->
+    <string name="add_new_asset">ADD NEW ASSET</string>
+
+    <string name="asset_information">Asset Information</string>
+    <string name="asset_name">Asset Name</string>
+    <string name="description">Description</string>
+    <string name="asset_type">Asset Type</string>
+    <string name="asset_status">Asset Status</string>
+
+    <string name="load_date">Load Date</string>
+    <string name="contract_type">Contract Type</string>
+    <string name="asset_code">Asset Code</string>
+    <string name="asset_category">Asset Category</string>
+    <string name="sub_category">Sub Category</string>
+    <string name="condition_date">Condition Date</string>
+    <string name="asset_condition">Asset Condition</string>
+    <string name="asset_comments">Asset Comments</string>
+    <string name="assets_use">Assets Use</string>
+    <string name="energy_rating">Energy Rating</string>
+
+
+    <string name="asset_trade_inspection">ASSET TRADE-INSPECTION</string>
+    <string name="reactive_criticality">Reactive Criticality</string>
+    <string name="next_inspection_date">Next Inspection Date</string>
+    <string name="last_inspection_date">Last Inspection Date</string>
+    <string name="inspection_frequency">Inspection Frequency</string>
+    <string name="inspection_procedure_result">Inspection Procedure Result</string>
+    <string name="inspection_comments">Inspection Comments</string>
+
+    <string name="maintenance_information">MAINTENANCE INFORMATION</string>
+    <string name="statutory_maintenance">Statutory Maintenance</string>
+    <string name="maintenance_strategy">Maintenance Strategy</string>
+    <string name="next_maintenance_date">Next Maintenance Date</string>
+    <string name="last_maintenance_date">Last Maintenance Date</string>
+    <string name="maintenance_frequency">Maintenance Frequency</string>
+    <string name="maintenance_procedure_result">Maintenance Procedure Result</string>
+    <string name="maintenance_comments">Maintenance Comments</string>
+
+
+    <string name="other_asset_information">Other Asset Information</string>
+    <string name="supplier_name">Supplier Name</string>
+    <string name="supplier_id">Supplier Id</string>
+    <string name="order_number">Order Number</string>
+    <string name="old_asset">Old Asset</string>
+    <string name="date_installed">Date Installed</string>
+    <string name="replacement_date">Replacement Date</string>
+    <string name="date_commissioned">Date Commissioned</string>
+    <string name="date_de_commissioned">Date De-Commissioned</string>
+    <string name="quality_life_expectancy">Quality Life Expectancy</string>
+
+    <string name="component_information">COMPONENT INFORMATION</string>
+
+    <string name="sub_component">Sub-Component</string>
+    <!--  <string name="est._maintenance">Est. Maintenance</string>-->
+    <string name="purchase_cost">Purchase Cost</string>
+    <string name="expected_replacement_cost">Expected Replacement Cost</string>
+    <string name="manufacturer">Manufacturer</string>
+    <string name="make_year">Make Year</string>
+    <string name="model">Model</string>
+    <string name="serial_no">Serial No</string>
+    <string name="bar_code">Bar Code</string>
+
+    <string name="parts_">PARTS/LABOURS INFORMATION</string>
+    <string name="parts_warranty_length">Parts Warranty Length</string>
+    <string name="warranty_start">Warranty Start</string>
+    <string name="warranty_end">Warranty End</string>
+    <string name="parts_warranty_comments">Parts Warranty Comments</string>
+    <string name="parts_warranty_entered_by">Parts Warranty Entered By</string>
+    <string name="parts_warranty_date_entered">Parts Warranty Date Entered</string>
+    <string name="labour_warranty_start">Labour Warranty Start</string>
+    <string name="labour_warranty_end">Labour Warranty End</string>
+    <string name="warranty_comments">Warranty Comments</string>
+    <string name="labour_warranty_entered_by">Labour Warranty Entered By</string>
+    <string name="labour_warranty_date_entered">Labour Warranty Date Entered</string>
+    <string name="drawing_number">Drawing Number</string>
+    <string name="om_link">OM Link</string>
+    <string name="room_name">Room Name</string>
+
+    <string name="MANAGE_PURCHASE_ORDERS">MANAGE PURCHASE ORDERS</string>
+    <string name="PURCHASE_ORDER">PURCHASE ORDER</string>
+    <string name="client_name">Client Name</string>
+    <!--    <string name="client_no.">Client No.</string>-->
+    <string name="purchase_order">Purchase Order</string>
+    <string name="client_po_no">Client PO No</string>
+    <string name="purchase_order_type">Purchase Order Type</string>
+    <string name="issued_by">Issued By</string>
+    <string name="status">Status</string>
+    <string name="authorised_by">Authorised By</string>
+    <string name="authorisation_date">Authorisation Date</string>
+
+
+    <string name="add_new_help">ADD NEW HELP</string>
+    <string name="help">HELP</string>
+    <string name="screen_name">Screen Name</string>
+    <string name="screen_id">Screen Id</string>
+    <!--  <string name="version_no.">Version No.</string>-->
+    <string name="document_entry">Document Entry</string>
+    <string name="refresh">Refresh</string>
+    <string name="nonEmpty">Please enter the filed</string>
+
+    //Validation On Project
+    <string name="error_asset_id">Please Enter Asset ID</string>
+    <string name="error_asset_name">Please Enter Asset Name</string>
+    <string name="error_contract_number">Please Enter Contract Number</string>
+    <string name="error_load_date">Please Enter Load Date</string>
+    <string name="error_condition_date">Please Enter Condition Date</string>
+    <string name="error_building_name">Please Enter Building Name</string>
+    <string name="error_room">Please Enter Room</string>
+    <string name="error_room_name">Please Enter RoomName</string>
+    <string name="back">Back</string>
+    <string name="back_to">Back</string>
+    <string name="estimated_wo_cost">Estimated WO Cost</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_show_all_site_in_map">Map</string>
+    <string name="title_activity_show_work_order_on_map">Map</string>
+
+
+</resources>

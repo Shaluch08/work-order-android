@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.workorder.app.workorderapplication.activity.CreateWorkAllocation">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="57dp"
+        android:id="@+id/relativeLayout1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Worker Name"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="serif"
+            android:textSize="15sp"
+            android:id="@+id/textView"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:id="@+id/create_workingName"
+            android:layout_width="fill_parent"
+            android:layout_height="39dp"
+            android:layout_alignStart="@+id/textView"
+            android:layout_alignTop="@+id/textView"
+            android:layout_marginTop="23dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:spinnerMode="dialog"
+            android:dropDownSelector="@color/cardview_light_background"
+            android:popupBackground="@color/dropdown"
+            android:entries="@array/contact"
+            android:splitMotionEvents="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout2"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trade Category"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="serif"
+            android:textSize="15sp"
+            android:id="@+id/textView1"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:id="@+id/createcategory"
+            android:layout_width="fill_parent"
+            android:layout_height="39dp"
+            android:layout_alignStart="@+id/textView1"
+            android:layout_alignTop="@+id/textView1"
+            android:layout_marginTop="23dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:spinnerMode="dialog"
+            android:dropDownSelector="@color/cardview_light_background"
+            android:popupBackground="@color/dropdown"
+            android:entries="@array/contact"
+            android:splitMotionEvents="true" /> </RelativeLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/createworkingshrs_text_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp">
+
+        <EditText
+            android:id="@+id/create_workingHrs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:fontFamily="serif"
+            android:hint="Working Hours"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black"
+            android:textColorHint="@color/colorAccent" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/createtotalhrs_text_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/createworkingshrs_text_input_layout"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentStart="true">
+
+        <EditText
+            android:id="@+id/create_totalHrs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+
+            android:fontFamily="serif"
+            android:hint="Total Hours"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black"
+            android:textColorHint="@color/colorAccent" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/createswp_text_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/createtotalhrs_text_input_layout"
+        android:layout_alignParentStart="true">
+
+        <EditText
+            android:id="@+id/create_swp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:fontFamily="serif"
+            android:hint="SWMS/SWP"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/colorAccent" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+
+        android:text="Create"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textAllCaps="false"
+        android:layout_alignParentRight="true"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/createswp_text_input_layout"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="23dp" />
+</RelativeLayout>

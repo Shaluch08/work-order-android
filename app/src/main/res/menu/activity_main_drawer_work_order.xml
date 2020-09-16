@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <group android:checkableBehavior="single"
+        >
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/dashboard"
+            android:title="@string/nav_dashboard"
+            />
+        <item
+            android:id="@+id/nav_asset"
+            android:icon="@drawable/assets"
+            android:title="@string/nav_asset"
+            android:iconTint="#93e61919"
+            />
+        <item
+            android:id="@+id/nav_purchase_order"
+            android:icon="@drawable/po"
+            android:title="@string/nav_purchase_order"
+            android:iconTint="#9315b7c2"/>
+        <item
+            android:id="@+id/nav_work_order"
+            android:icon="@drawable/workorder"
+            android:title="@string/nav_work_order" />
+        <item
+            android:id="@+id/nav_client_list"
+            android:icon="@drawable/client_list"
+            android:title="Client List"
+            
+            />
+        <item
+            android:id="@+id/nav_swms_list"
+            android:title="SWMS List"
+            android:icon="@drawable/ic_sync_black_24dp"/>
+    </group>
+
+    <item android:title="Other">
+        <menu>
+            <item
+                android:id="@+id/nav_help"
+                android:icon="@drawable/help"
+                android:title="@string/nav_help"
+                android:iconTint="#93b798d4"/>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/logout"
+                android:title="@string/nav_logout"
+                android:iconTint="#932ab34c"/>
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,243 @@
+package com.workorder.app.activity;
+
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.workorder.app.ConnectivityReceiver;
+import com.workorder.app.R;
+import com.workorder.app.pojo.docPOJO.AttachementPOJO;
+import com.workorder.app.util.Constants;
+import com.workorder.app.util.Signature;
+import com.workorder.app.util.UrlClass;
+import com.workorder.app.webservicecallback.OnTaskCompleted;
+import com.workorder.app.webservicecallback.SendData;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.List;
+
+public class SignatureActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+    Signature signature;
+    Button clearButton, submitButton;
+    //private List<AsigneeResponseModel> responseModel;
+  //  private SignResponseModel signResponse;
+    Integer taskId = 0;
+    public String imageUrl;
+    Toolbar toolbar;
+   // AsigneeResponseModel asigneeResponseModel = null;
+    ProgressDialog dialog;
+    String name;
+    TextView tv_title;
+    ImageView iv_back;
+    CheckBox checkBox;
+    CheckBox ch_observer;
+    CheckBox ch_worker;
+    AttachementPOJO attachementPOJO;
+    final Context context = this;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_signature);
+      //  tv_title=findViewById(R.id.tv_activity_name);
+        iv_back=findViewById(R.id.iv_back);
+
+        attachementPOJO= (AttachementPOJO) getIntent().getSerializableExtra("AssesmentPOJO");
+        init();
+
+        iv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
+    public void init() {
+        checkBox = findViewById(R.id.ch_signature);
+        ch_observer=findViewById(R.id.ch_sign_as_observer);
+        ch_worker=findViewById(R.id.ch_sign_as_worker);
+        signature = findViewById(R.id.signature);
+        clearButton = findViewById(R.id.btn_clear_signature);
+        submitButton = findViewById(R.id.btn_submit_signature);
+        ch_worker.setChecked(true);
+
+        ch_worker.setOnCheckedChangeListener(this);
+        ch_observer.setOnCheckedChangeListener(this);
+
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signature.clear();
+            }
+        });
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    imageUrl = "data:image/png;base64," + signature.getBase64();
+                    if(checkBox.isChecked() && (ch_worker.isChecked() || ch_observer.isChecked()))
+                    {
+                        if (imageUrl.length()>5500) {
+                            //String CurentStatus = preferenceManager.getKeyStatus();
+                          /*  if (asigneeResponseModel != null) {
+
+                            //    uploadSignature();
+
+                            } else {
+                                if (CurentStatus.equals("ASSIGNED")) {
+                                    uploadSignature();
+                                } else {
+                                    showPopUp();
+                                }
+                            }*/
+                            JSONObject jsonObject=new JSONObject();
+
+                            jsonObject.put("EmpID", Constants.loginPOJO.getPersonCompanyId());
+                            jsonObject.put("IsNameExist",1);
+                            jsonObject.put("IsSignedStatus",1);
+                            jsonObject.put("taskId",Constants.docListPOJO.getTaskID());
+                            jsonObject.put("Username",Constants.loginPOJO.getUsername());
+                            jsonObject.put("attachementid",attachementPOJO.getAttachementID());
+                            jsonObject.put("imageUrl",imageUrl);
+
+                            boolean isConnected = ConnectivityReceiver.isConnected();
+
+                            if(isConnected ==true) {
+                                new SendData(SignatureActivity.this, jsonObject, UrlClass.UPLOAD_SIGN_URL, new OnTaskCompleted<String>() {
+                                    @Override
+                                    public void onTaskCompleted(String response) {
+                                        Log.d("Post Response", response);
+                                        try {
+                                            JSONObject object = new JSONObject(response);
+                                            Boolean result = object.getBoolean("status");
+                                            if (result) {
+                                                signature.clear();
+                                                Toast.makeText(context, "" + object.getString("msg"), Toast.LENGTH_SHORT).show();
+                                                Constants.ACTIVITY_NAME = Constants.SHOW_DOCUMENT_ACTIVITY;
+                                                startActivity(new Intent(SignatureActivity.this, HomeActivity.class));
+                                                finish();
+                                            } else {
+                                                //Toast.makeText(context, "Signature Uploaded Failed...", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(context, "" + object.getString("msg"), Toast.LENGTH_SHORT).show();
+
+                                            }
+
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                            Log.d("PostSignature", e.toString());
+                                        }
+
+                                    }
+                                }, true).execute();
+                                Log.d("ImageUrl", imageUrl);
+                            }else {
+                                SharedPreferences mPrefs = getApplicationContext().getSharedPreferences("PREFS_NAME1",Context.MODE_PRIVATE);
+                                SharedPreferences.Editor prefsEditor = mPrefs.edit();
+                                prefsEditor.putString("jsonobject", jsonObject.toString());
+                                prefsEditor.commit();
+
+                                Toast.makeText(getApplicationContext(),"Network Not Available",Toast.LENGTH_LONG).show();
+                            }
+
+                        }
+                        else
+                        {
+                            Toast.makeText(SignatureActivity.this, "Please sign to submit your signature.", Toast.LENGTH_SHORT).show();
+                        }
+                    }else if (!checkBox.isChecked()){
+
+                        Toast.makeText(SignatureActivity.this, "Please Enable Check Box To Enter Your Signature.", Toast.LENGTH_SHORT).show();
+
+                    }else if (!ch_worker.isChecked() || !ch_observer.isChecked())
+                    {
+                        Toast.makeText(SignatureActivity.this, "Please select the signature type.", Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e)
+                {
+                    e.printStackTrace();
+                    Log.d("SignatureException",e.toString());
+                }
+            }
+        });
+
+
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+        switch (buttonView.getId())
+        {
+            case R.id.ch_sign_as_observer:
+                if (ch_observer.isChecked())
+                {
+                    ch_worker.setChecked(false);
+                }
+                     break;
+            case R.id.ch_sign_as_worker:
+                if (ch_worker.isChecked())
+                {
+                    ch_observer.setChecked(false);
+                }
+                break;
+        }
+
+    }
+  /*  public void showPopUp()
+    {
+        final Dialog dialog1 = new Dialog(context);
+        dialog1.setContentView(R.layout.already_assignee_fragment);
+        dialog1.setTitle("Alert");
+        Button add=dialog1.findViewById(R.id.add_other);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AssigneeListDialogFragment fragment = new AssigneeListDialogFragment();
+                Bundle bundle = new Bundle();
+                bundle.putInt("taskId", taskId);
+                fragment.setArguments(bundle);
+                fragment.setListner(SignatureActivity.this);
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.addToBackStack(null);
+                fragment.show(fragmentTransaction, "AssigneeListDialogFragment");
+                dialog1.dismiss();
+            }
+        });
+        Button back=dialog1.findViewById(R.id.back_task_list);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SignatureActivity.this,HomeActivity.class));
+                dialog1.dismiss();
+            }
+        });
+        dialog1.show();
+    }*/
+
+
+
+
+
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    tools:context="com.workorder.app.activity.SplashActivity"
+    android:background="@drawable/loginbg"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/LogoImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logoicon"
+        android:layout_gravity="center"
+        android:layout_marginTop="209dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:id="@+id/splash_screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:layout_gravity="center"
+        android:text="Work Order"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:layout_below="@+id/LogoImage"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentRight="true" />
+</LinearLayout>

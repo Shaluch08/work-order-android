@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="250dp"
+    android:layout_height="130dp">
+
+    <TextView
+        android:id="@+id/tv_hoem_alert_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Alert"
+        android:textColor="#000"
+        android:textSize="16sp"
+
+        />
+    <TextView
+        android:id="@+id/tv_home_alert_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Should the Work Order being worked on be marked as completed?"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="12sp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D1D0D0"
+        android:layout_marginTop="15dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        >
+        <TextView
+            android:id="@+id/tv_home_alert_check_on_site_no"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="No"
+            android:gravity="center"
+            android:textColor="#2196F3"
+            android:textSize="16sp"
+            />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#D1D0D0"
+            />
+        <TextView
+            android:id="@+id/tv_home_alert_check_on_site_yes"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Yes"
+            android:gravity="center"
+            android:textColor="#2196F3"
+            android:textSize="16sp"
+            />
+    </LinearLayout>
+</LinearLayout>

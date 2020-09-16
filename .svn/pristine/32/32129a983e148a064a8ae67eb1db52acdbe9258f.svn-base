@@ -1,0 +1,307 @@
+package com.workorder.app.workorderapplication.activity;
+
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AbsListView;
+import android.widget.Toast;
+
+import com.workorder.app.R;
+import com.workorder.app.activity.LoginActivity;
+import com.workorder.app.workorderapplication.adapter.ListPurchaseOrderAdapter;
+import com.workorder.app.workorderapplication.model.dashboardModel.AdminTreeStructure;
+import com.workorder.app.workorderapplication.model.dashboardModel.Treestuctutr;
+import com.workorder.app.workorderapplication.model.dashboardModel.contractor.ContrctTree;
+import com.workorder.app.workorderapplication.model.purchaseOrderModel.PurchaseOrderResponseModel;
+import com.workorder.app.workorderapplication.remote.ApiServicesWorkOrder;
+import com.workorder.app.workorderapplication.remote.NetworkWorkOrder;
+import com.workorder.app.workorderapplication.remote.PreferenceManagerWorkOrder;
+import com.workorder.app.workorderapplication.remote.UtilityWorkOrder;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class SearchPurchaseOrder extends AppCompatActivity {
+    FloatingActionButton fab;
+    RecyclerView recycler_View;
+    ListPurchaseOrderAdapter adapter;
+    SearchView searchView;
+    String role1;
+    String rolename, companyid;
+    PreferenceManagerWorkOrder preferenceManagerWorkOrder;
+    ArrayList<Treestuctutr> arrayList;
+    ArrayList<ContrctTree> contrctTrees;
+    ArrayList<AdminTreeStructure> adminTreeStructures;
+    public List<PurchaseOrderResponseModel> responseModel;
+    ProgressDialog progressDoalog;
+    LinearLayoutManager linearLayoutManager;
+    Context c;
+    int visibleItemCount, totalItemCount, pastVisibleItem = 0;
+    boolean isScrolling = false;
+    int currentPage = 0;
+    List<PurchaseOrderResponseModel> sublist;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_search_purchase_order);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Purchase Order");
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+            toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+        }
+        preferenceManagerWorkOrder = PreferenceManagerWorkOrder.getInstance(getApplicationContext());
+        if (preferenceManagerWorkOrder.getKey_User_Role().toString().trim().equals("Finance Manager")) {
+            ArrayList<Treestuctutr> list = (ArrayList<Treestuctutr>) getIntent().getSerializableExtra("list");
+            arrayList = list;
+        } else if (preferenceManagerWorkOrder.getKey_User_Role().toString().trim().equals("Contractor")) {
+            ArrayList<ContrctTree> contrctTreeArrayList = (ArrayList<ContrctTree>) getIntent().getSerializableExtra("contrctTreeList");
+            contrctTrees = contrctTreeArrayList;
+        } else {
+            ArrayList<AdminTreeStructure> list = (ArrayList<AdminTreeStructure>) getIntent().getSerializableExtra("adminlist");
+            adminTreeStructures = list;
+        }
+        rolename = preferenceManagerWorkOrder.getKey_User_Role();//getKey_User_Name();
+        companyid = preferenceManagerWorkOrder.getKey_Person_Company_Id();
+        Intent intent = getIntent();
+        if (null != intent) {
+            role1 = intent.getStringExtra("role1");
+        }
+        recycler_View = (RecyclerView) findViewById(R.id.recycler_po);
+        linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        recycler_View.setLayoutManager(linearLayoutManager);
+        recycler_View.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
+                    isScrolling = true;
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                visibleItemCount = linearLayoutManager.getChildCount();
+                totalItemCount = linearLayoutManager.getItemCount();
+                pastVisibleItem = linearLayoutManager.findFirstVisibleItemPosition();
+                if (isScrolling && (visibleItemCount + pastVisibleItem == totalItemCount)) {
+                    isScrolling = false;
+                }
+
+            }
+        });
+        searchView = (SearchView) findViewById(R.id.search_po);
+        searchView.setFocusableInTouchMode(false);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        searchView.clearFocus();
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // startActivity(new Intent(SearchPurchaseOrder.this,Purchase_Order.class));
+            }
+        });
+        progressDoalog = new ProgressDialog(this);
+        progressDoalog.setMessage("Extracting and Transferring Data Please Wait...");
+        progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+
+
+        fetchPurchaseOrderList();
+
+    }
+
+    //public void sublist(List<PurchaseOrderResponseModel> list)
+//{
+//    int visiblecount=3;
+//    int totalPage=list.size()/3;
+//    for(int i=0;i<list.size();i+=visiblecount)
+//    {
+//            int end = Math.min(i + visiblecount, list.size());
+//            List<PurchaseOrderResponseModel> sublist = list.subList(i, end);
+//            adapter=new ListPurchaseOrderAdapter(getApplicationContext(),sublist);
+//            recycler_View.setAdapter(adapter);
+//            adapter.notifyDataSetChanged();
+//    }
+//}
+    public void callAfterResponse(List<PurchaseOrderResponseModel> response) {
+        adapter = new ListPurchaseOrderAdapter(getBaseContext(), response);
+        recycler_View.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        // progressDoalog.dismiss();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+
+            case R.id.menu_refresh:
+                /*Toast.makeText(this, "Refresh", Toast.LENGTH_LONG).show();*/
+                progressDoalog = new ProgressDialog(this);
+                progressDoalog.setMessage("Page Refreshing");
+                progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                progressDoalog.show();
+                progressDoalog.setCanceledOnTouchOutside(false);
+                onRestart();
+                return true;
+
+            case R.id.menu_dashboard:
+                Toast.makeText(this, "DashBoard", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                return true;
+            case R.id.menu_asset:
+                Toast.makeText(this, "Asset", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(), SearchAsset.class));
+                return true;
+            case R.id.menu_about_us:
+                Toast.makeText(this, "About Us", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.menu_work_order:
+                Toast.makeText(this, "Work Order", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(), SearchWorkOrder.class));
+                return true;
+            case R.id.menu_logout:
+                startActivity(new Intent(this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                finish();
+                Toast.makeText(this, "Logout", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.menu_purchase_order:
+                Toast.makeText(this, "Purchase Order", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(), SearchPurchaseOrder.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void fetchPurchaseOrderList() {
+        if (UtilityWorkOrder.isNetworkAvailable(getApplicationContext())) {
+            progressDoalog.show();
+            ApiServicesWorkOrder apiServicesWorkOrder = NetworkWorkOrder.getInstance().getApiServicesWorkOrder();
+            final Call<List<PurchaseOrderResponseModel>> workOrderResponseModelCall = apiServicesWorkOrder.poList("application/json", "api/purchaseorder/purchaseorderlist?rolename=" + rolename + "&companyid=" + companyid);
+            workOrderResponseModelCall.enqueue(new Callback<List<PurchaseOrderResponseModel>>() {
+                @Override
+                public void onResponse(Call<List<PurchaseOrderResponseModel>> call, Response<List<PurchaseOrderResponseModel>> response) {
+                    try {
+                        // TODO NULL CHECK OF RESPONSE
+                        if (response.body() != null) {
+                            responseModel = response.body();
+                            Handler handler = new Handler();
+                            handler.post(new Runnable() {
+                                public void run() {
+                                    try {
+                                        // code to execute
+                                        Thread.sleep(3000);
+                                    } catch (Exception e) {
+
+                                    }
+                                    progressDoalog.dismiss();
+                                }
+                            });
+
+                            callAfterResponse(responseModel);
+                            progressDoalog.dismiss();
+                            //sublist(responseModel);
+                        } else {
+                            Toast.makeText(getApplicationContext(), response.errorBody().string().toString(), Toast.LENGTH_LONG).show();
+                            progressDoalog.dismiss();
+                        }
+                    } catch (Exception e) {
+                        Log.v("Exception", e.toString());
+                        progressDoalog.dismiss();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<PurchaseOrderResponseModel>> call, Throwable t) {
+                    t.printStackTrace();
+                    System.out.println(t.getMessage() + t.getLocalizedMessage());
+                    progressDoalog.dismiss();
+                }
+            });
+        } else {
+            Toast.makeText(getApplicationContext(), "NetworkWorkOrder is not available", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+
+    public List<PurchaseOrderResponseModel> generatePage(List<PurchaseOrderResponseModel> list, int currentPage) {
+        int TOTAL_NUM_ITEMS = list.size();
+        int ITEMS_PER_PAGE = 3;
+        int ITEMS_REMAINING = TOTAL_NUM_ITEMS % ITEMS_PER_PAGE;
+        int LAST_PAGE = TOTAL_NUM_ITEMS / ITEMS_PER_PAGE;
+        int startItem = currentPage * ITEMS_PER_PAGE + 1;
+        int numOfData = ITEMS_PER_PAGE;
+
+        // List<PurchaseOrderResponseModel> pageData= list;
+
+        if (currentPage == LAST_PAGE && ITEMS_REMAINING > 0) {
+            for (int i = startItem; i < startItem + ITEMS_REMAINING; i++) {
+                list.get(i);
+            }
+        } else {
+            for (int i = startItem; i < startItem + numOfData; i++) {
+                list.get(i);
+            }
+        }
+        return list;
+    }
+
+    @Override
+    protected void onRestart() {
+
+        super.onRestart();
+        Intent i = new Intent(SearchPurchaseOrder.this, SearchPurchaseOrder.class);  //your class
+        startActivity(i);
+        finish();
+
+    }
+
+}

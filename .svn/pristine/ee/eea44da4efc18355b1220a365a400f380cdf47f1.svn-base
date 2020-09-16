@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.workorder.app.workorderapplication.activity.UpdateWorkOrder3">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbarone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="85dp">
+                <ImageView
+                    android:id="@+id/tree"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/tree"
+                    android:visibility="visible"/>
+            </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+     <ScrollView
+         android:layout_below="@+id/appbarone"
+         android:layout_above="@+id/RLbuttonThree"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+         <FrameLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+             <RelativeLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent">
+
+                 <android.support.design.widget.TextInputLayout
+                     android:id="@+id/TILCountry"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+
+                     android:layout_marginTop="5dp">
+
+                     <EditText
+                         android:id="@+id/update_country"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:hint="Country"
+                         android:textSize="18sp"
+                         android:fontFamily="serif"
+                         android:layout_marginLeft="5dp"/>
+
+                 </android.support.design.widget.TextInputLayout>
+
+                 <RelativeLayout
+                     android:id="@+id/RLContractor"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/TILCountry"
+                     android:layout_marginTop="5dp">
+
+                     <TextView
+                         android:id="@+id/tvcontractor"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="Contractor Assigned"
+                         android:textSize="18sp"
+                         android:fontFamily="serif"
+                         android:textColor="@color/colorPrimaryDark"
+                         android:layout_marginLeft="5dp"/>
+
+                     <Spinner
+                         android:id="@+id/update_spinner_contractor_assi"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_toRightOf="@+id/tvcontractor"
+                         android:backgroundTint="@color/colorPrimaryDark"
+                         android:layout_marginLeft="10dp"></Spinner>
+
+                 </RelativeLayout>
+
+
+                 <RelativeLayout
+                     android:id="@+id/RLContPerson"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/RLContractor"
+                     android:layout_marginTop="5dp">
+
+                     <TextView
+                         android:id="@+id/tvContPerson"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="Contact Person"
+                         android:textSize="18sp"
+                         android:fontFamily="serif"
+                         android:textColor="@color/colorPrimaryDark"
+                         android:layout_marginLeft="5dp"/>
+
+                     <Spinner
+                         android:id="@+id/update_spinner_contact_person"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_toRightOf="@+id/tvContPerson"
+                         android:backgroundTint="@color/colorPrimaryDark"
+                         android:layout_marginLeft="10dp"></Spinner>
+
+                 </RelativeLayout>
+
+
+                 <android.support.design.widget.TextInputLayout
+                     android:id="@+id/TILphone"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/RLContPerson"
+                     android:layout_marginTop="5dp">
+
+                     <EditText
+                         android:id="@+id/update_phone"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:hint="Phone"
+                         android:textSize="18sp"
+                         android:layout_marginLeft="5dp"
+                         android:fontFamily="serif"
+                         android:drawableRight="@drawable/ic_phone"
+                         android:inputType="phone"/>
+
+                 </android.support.design.widget.TextInputLayout>
+
+                 <android.support.design.widget.TextInputLayout
+                     android:id="@+id/TILmobile"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/TILphone">
+
+                     <EditText
+                         android:id="@+id/update_mobile"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:hint="Mobile"
+                         android:textSize="18sp"
+                         android:layout_marginLeft="5dp"
+                         android:fontFamily="serif"
+                         android:drawableRight="@drawable/ic_smartphone"
+                         android:inputType="phone"/>
+
+                 </android.support.design.widget.TextInputLayout>
+
+                 <android.support.design.widget.TextInputLayout
+                     android:id="@+id/TILemail"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/TILmobile"
+                     >
+
+                     <EditText
+                         android:id="@+id/update_email"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:hint="Email"
+                         android:textSize="18sp"
+                         android:layout_marginLeft="5dp"
+                         android:drawableRight="@drawable/ic_email_black_24dp"
+                         android:fontFamily="serif"
+                         android:inputType="textEmailAddress"/>
+
+                 </android.support.design.widget.TextInputLayout>
+
+
+                 <android.support.design.widget.TextInputLayout
+                     android:id="@+id/TILstartDate"
+                     android:layout_width="180dp"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/TILemail"
+                     >
+
+                     <EditText
+                         android:id="@+id/update_start_date"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:hint="Start Date"
+                         android:textSize="18sp"
+                         android:layout_marginLeft="5dp"
+                         android:drawableRight="@drawable/date"
+                         android:fontFamily="serif"
+                         android:focusable="false"
+                         android:inputType="date"/>
+
+                 </android.support.design.widget.TextInputLayout>
+
+
+                 <android.support.design.widget.TextInputLayout
+                     android:id="@+id/TILendDate"
+                     android:layout_width="180dp"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/TILemail"
+                     android:layout_alignParentRight="true"
+                     >
+
+                     <EditText
+                         android:id="@+id/update_end_date"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:hint="End Date"
+                         android:textSize="18sp"
+                         android:layout_marginLeft="5dp"
+                         android:drawableRight="@drawable/date"
+                         android:fontFamily="serif"
+                         android:focusable="false"
+                         android:inputType="date"/>
+
+                 </android.support.design.widget.TextInputLayout>
+
+
+                 <android.support.design.widget.TextInputLayout
+                     android:id="@+id/TILAutoriesedcost"
+                     android:layout_width="180dp"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/TILendDate"
+                     >
+
+                     <EditText
+                         android:id="@+id/update_authorised_cost"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:hint="Authorised Cost"
+                         android:textSize="18sp"
+                         android:layout_marginLeft="5dp"
+                         android:fontFamily="serif"
+                         android:inputType="numberDecimal"/>
+
+                 </android.support.design.widget.TextInputLayout>
+
+
+                 <android.support.design.widget.TextInputLayout
+                     android:id="@+id/TILAssignedDate"
+                     android:layout_width="180dp"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/TILstartDate"
+                     android:layout_alignParentRight="true"
+                     >
+
+                     <EditText
+                         android:id="@+id/update_assigned_date"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:hint="Assigned Date"
+                         android:textSize="18sp"
+                         android:drawableRight="@drawable/date"
+                         android:layout_marginLeft="5dp"
+                         android:focusable="false"
+                         android:fontFamily="serif"
+                         android:inputType="date"/>
+
+                 </android.support.design.widget.TextInputLayout>
+
+                 <android.support.design.widget.TextInputLayout
+                     android:id="@+id/TILAuthoriesdHour"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/TILAssignedDate"
+                     >
+
+                     <EditText
+                         android:id="@+id/update_authorised_hour"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:hint="Authorised Hour"
+                         android:textSize="18sp"
+                         android:layout_marginLeft="5dp"
+                         android:fontFamily="serif"
+                         android:inputType="number"/>
+
+                 </android.support.design.widget.TextInputLayout>
+
+             </RelativeLayout>
+         </FrameLayout>
+     </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/RLbuttonThree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom">
+
+            <Button
+                android:id="@+id/update_btn_previous"
+                android:background="@color/colorPrimary"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="20dp"
+                android:fontFamily="serif"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Back"
+                android:textAllCaps="true"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"/>
+
+
+            <Button
+                android:id="@+id/update_btn_next"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@color/colorPrimary"
+                android:elevation="20dp"
+                android:fontFamily="serif"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Next"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

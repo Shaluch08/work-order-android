@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.workorder.app.workorderapplication.activity.UpdateWorkOrder"
+    android:orientation="horizontal"
+    >
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/appbarWorker"
+        android:background="@color/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLclien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appbarWorker"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/tvclientName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Client Name"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginLeft="5dp"/>
+
+        <Spinner
+            android:id="@+id/tvClient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tvclientName"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:spinnerMode="dropdown"></Spinner>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLOrderStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLclien"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/tvorderStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Status"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginLeft="5dp"/>
+
+        <Spinner
+            android:id="@+id/tvorderStatusDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tvorderStatus"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:spinnerMode="dropdown"></Spinner>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLDueDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLOrderStatus"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/tvDueDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Due Date"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/etdueDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Due Date"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:layout_toRightOf="@+id/tvDueDate"
+            android:textColor="#000"
+            android:layout_marginLeft="15dp"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/RLAssetId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLDueDate"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/tvassetid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Asset Id"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/etAssestid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Asset Id"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:layout_toRightOf="@+id/tvassetid"
+            android:textColor="#000"
+            android:layout_marginLeft="15dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLpriority"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLAssetId"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/tvpriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Priority"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginLeft="5dp"/>
+
+        <Spinner
+            android:id="@+id/tvpriorityDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tvpriority"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:spinnerMode="dropdown"></Spinner>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/RLDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLpriority"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/tvdescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/etworkorderDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="desc"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:layout_toRightOf="@+id/tvdescription"
+            android:textColor="#000"
+            android:layout_marginLeft="15dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLAssetLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLDescription"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/tvAssetLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Asset Location"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/tvassestLocationDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Due Date"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:layout_toRightOf="@+id/tvAssetLocation"
+            android:textColor="#000"
+            android:layout_marginLeft="15dp"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/RLWOnumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLAssetLocation"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/tvWonumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WO Number"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/tvWorkorderNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WO Number"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:layout_toRightOf="@+id/tvWonumber"
+            android:textColor="#000"
+            android:layout_marginLeft="15dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLbutton1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLWOnumber"
+        android:layout_marginTop="5dp">
+
+        <Button
+            android:id="@+id/btnMaterial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Materials Used"
+            android:textSize="16sp"
+            android:fontFamily="serif"
+            android:textColor="#ffffff"
+            android:elevation="10dp"
+            android:translationZ="5dp"
+            android:textAllCaps="false"
+            android:background="@drawable/shape"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLExtensionRequired"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLbutton1"
+        android:layout_marginTop="5dp">
+
+        <Button
+            android:id="@+id/btnextReq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Extension Required"
+            android:textSize="16sp"
+            android:fontFamily="serif"
+            android:elevation="10dp"
+            android:translationZ="5dp"
+            android:textColor="#ffffff"
+            android:textAllCaps="false"
+            android:background="@drawable/shape"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLReportOnWork"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLExtensionRequired"
+        android:layout_marginTop="5dp">
+
+        <Button
+            android:id="@+id/btnReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Report On Work"
+            android:textSize="16sp"
+            android:fontFamily="serif"
+            android:textColor="#ffffff"
+            android:elevation="10dp"
+            android:translationZ="5dp"
+            android:textAllCaps="false"
+            android:background="@drawable/shape"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLExtDatails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLReportOnWork"
+        android:layout_marginTop="5dp">
+
+        <Button
+            android:id="@+id/btnExtDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Extenstion Details"
+            android:textSize="16sp"
+            android:fontFamily="serif"
+            android:textColor="#ffffff"
+            android:elevation="10dp"
+            android:translationZ="5dp"
+            android:textAllCaps="false"
+            android:background="@drawable/shape"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLWoDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLExtDatails"
+        android:layout_marginTop="5dp">
+
+        <Button
+            android:id="@+id/btWoDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Work Order Details"
+            android:textSize="16sp"
+            android:fontFamily="serif"
+            android:textColor="#ffffff"
+            android:textAllCaps="false"
+            android:elevation="10dp"
+            android:translationZ="5dp"
+            android:background="@drawable/shape"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/btnBacktolist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:fontFamily="serif"
+            android:textAllCaps="false"
+            android:textSize="16dp"
+            android:elevation="20dp"
+            android:background="@drawable/shape"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="#fff"/>
+
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:fontFamily="serif"
+            android:layout_alignParentRight="true"
+            android:textAllCaps="false"
+            android:textSize="16dp"
+            android:elevation="20dp"
+            android:background="@drawable/shape"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="#fff"/>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="30dp"
+    android:minHeight="350dp"
+    >
+
+
+    <TextView
+        android:id="@+id/txt_title"
+         style="@style/LargeText20"
+        android:layout_centerInParent="true"
+        android:text="@string/declined_text"
+        android:gravity="center_horizontal"
+        android:drawableTop="@mipmap/checkbox_multi_selected"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e4e4e4"
+    android:clickable="true"
+    tools:context="com.workorder.app.activity.HomeActivity">
+
+    <View
+        android:layout_width=".5dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="40dp"
+        android:background="@color/black" />
+
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@mipmap/dignal_back" >
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="25dp"
+            android:src="@mipmap/logo" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/img_profile"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_home_activity_name"
+                style="@style/LargeText15"
+                android:text="Jhon Doye"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_home_activity_role"
+                style="@style/LargeText15"
+                android:layout_marginTop="5dp"
+                android:text="Designation"
+                android:textColor="@color/white"
+
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/unsigned_task"
+            style="@style/LargeText15"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/img_profile"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="48dp"
+            android:text="Work Order List"
+            android:textColor="#000000"
+            android:fontFamily="serif"/>
+
+        <!--<ImageView-->
+            <!--android:id="@+id/imageView2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_below="@+id/img_profile"-->
+            <!--android:layout_marginEnd="37dp"-->
+            <!--android:layout_marginRight="37dp"-->
+            <!--android:layout_marginTop="24dp"-->
+            <!--app:srcCompat="@mipmap/filter" />-->
+
+
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_top">
+
+    </FrameLayout>
+
+    <include layout="@layout/toolbar"
+        />
+
+
+</RelativeLayout>

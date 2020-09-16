@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:paddingBottom="5dp"
+    android:layout_height="165dp">
+    <TextView
+        android:layout_width="220dp"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="17sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:text="The App has detected that you are at a site location."
+        />
+    <TextView
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:textSize="15sp"
+        android:text="Do you wish to set your status to On-Site"
+        android:gravity="center"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#726E6E"
+        android:layout_marginTop="20dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/tv_dialog_check_on_site_no"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="No"
+            android:gravity="center"
+            android:textColor="#2196F3"
+            android:textSize="18sp"
+            />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#726E6E"
+            />
+        <TextView
+            android:id="@+id/tv_dialog_check_on_site_yes"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Yes"
+            android:gravity="center"
+            android:textColor="#2196F3"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+</LinearLayout>

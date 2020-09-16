@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2F9599</color>
+    <color name="colorPrimaryDark">#2F9599</color>
+    <color name="colorAccent">#475bcf</color>
+    <color name="navigationbar">#727CAD</color>
+    <color name="white">#ffffff</color>
+    <color name="blueTheme">#475bcf</color>
+    <color name="black">#000000</color>
+    <color name="gray">#626262</color>
+    <color name="orange">#ff5722</color>
+    <color name="layout_bg">#d7d7d7</color>
+
+
+    <color name="workordercolorPrimary">#2F9599</color>
+    <color name="workordercolorPrimaryDark">#2F9599</color>
+    <color name="workordercolorAccent">#2F9599</color>
+    <color name="item">#edf1f5</color>
+    <color name="text">#000000</color>
+    <color name="float_back">#F57F17</color>
+    <color name="dashback">#EEEEEE</color>
+    <color name="list_color">#F02314</color>
+    <color name="search">#039BE5</color>
+    <color name="dropdown">#efeff2</color>
+    <color name="spinnerBack">#fff6e9</color>
+    <color name="even">#C7E1D0</color>
+    <color name="odd">#B4D7BF</color>
+</resources>

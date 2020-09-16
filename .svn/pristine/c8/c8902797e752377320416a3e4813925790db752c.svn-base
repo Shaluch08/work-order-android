@@ -1,0 +1,261 @@
+package com.workorder.app.fragment;
+
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
+import com.google.gson.Gson;
+import com.workorder.app.R;
+import com.workorder.app.adapter.SyncronizedHomeAdapter;
+import com.workorder.app.pojo.WorkOrderPOJO;
+import com.workorder.app.pojo.assesment.AssesmentHomePOJO;
+import com.workorder.app.util.Constants;
+import com.workorder.app.util.UrlClass;
+import com.workorder.app.webservicecallback.GetApiCallback;
+import com.workorder.app.webservicecallback.OnTaskCompleted;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+
+
+/**
+ * Created by Bharat Tripathi on 20-Mar-18.
+ */
+
+public class AssessmentHomeFragment extends Fragment{
+    Dialog dialog;
+    Button yesButton;
+    TextView titleText;
+    ImageView img;
+    ProgressBar progressbar;
+    //RVSyncTaskListAdapter adapter;
+    Integer taskId ;
+    //private List<SearchTaskListResponseModel> list = new ArrayList<>();
+    //private ArrayList<SearchTaskListResponseModel> data;
+    RecyclerView mrecyclerView;
+    String task = "";
+    ImageView attchment;
+   // private PreferenceManager preferenceManager;
+    TextView taskList;
+    ProgressDialog progressDialog;
+   // private List<SearchTaskListResponseModel> responseModel;
+
+    SyncronizedHomeAdapter syncronizedHomeAdapter;
+
+    String role="",companyId="";
+    String url="";
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        final View rootView=inflater.inflate(R.layout.fragment_sync,container,false);
+       // attchment=rootView.findViewById(R.id.img_attachment);
+        if(getArguments()!=null)
+        {
+            taskId = getArguments().getInt("taskId");
+        }
+
+        Toolbar toolbar = (Toolbar)rootView.findViewById(R.id.toolbar);
+        init(rootView);
+
+         //UrlClass.ROLE_TYPE=Constants.loginPOJO.getUserRole();
+         //UrlClass.COMPANYID=Constants.loginPOJO.getPersonCompanyId();
+        url=UrlClass.GET_ALL_TASK_URL+UrlClass.ROLE_TYPE+"&companyid="+UrlClass.COMPANYID;
+        Log.d("SyncUrl",url);
+
+        role=Constants.loginPOJO.getUserRole();
+        companyId=Constants.loginPOJO.getPersonCompanyId();
+        Log.d("URL",UrlClass.GET_WORKORDER_URL+role+"&companyid="+companyId);
+
+
+
+      if (Constants.workerPOJOList.size()==0)
+      {
+          showProgressPopup();
+
+          new GetApiCallback(getActivity(), UrlClass.GET_WORKORDER_URL+role+"&companyid="+companyId, new OnTaskCompleted<String>() {
+              @Override
+              public void onTaskCompleted(String response) {
+                  Log.d("ResponseWorkOrder",response);
+                  try {
+
+                      yesButton.setVisibility(View.VISIBLE);
+                      img.setVisibility(View.VISIBLE);
+                      progressbar.setVisibility(View.GONE);
+                      titleText.setText("Download Completed");
+                      Log.d("Url",UrlClass.GET_ALL_TASK_URL);
+                /*    JSONArray jsonArray=new JSONArray(response);
+                    Log.d("SingleResponse",jsonArray.get(0).toString());*/
+                      Constants.workOrderPOJOList= Arrays.asList(new Gson().fromJson(response, WorkOrderPOJO[].class));
+                      syncronizedHomeAdapter=new SyncronizedHomeAdapter(getActivity(), Constants.workOrderPOJOList);
+                      mrecyclerView.setAdapter(syncronizedHomeAdapter);
+                      Constants.TASK_ID=""+Constants.workOrderPOJOList.get(0).getAssessmentTaskId();
+                      // assesmentHomePOJO=Constants.assesmentHomePOJOList.get(0);
+
+
+                  }catch (Exception e)
+                  {
+
+                  }
+
+              }
+          },true).execute();
+
+
+
+/*          new GetApiCallback(getActivity(), url, new OnTaskCompleted<String>() {
+              @Override
+              public void onTaskCompleted(String response) {
+                  Log.d("SyncResponse",response);
+                  try {
+                      yesButton.setVisibility(View.VISIBLE);
+                      img.setVisibility(View.VISIBLE);
+                      progressbar.setVisibility(View.GONE);
+                      titleText.setText("Download Completed");
+                      Log.d("Url",UrlClass.GET_ALL_TASK_URL);
+                *//*    JSONArray jsonArray=new JSONArray(response);
+                    Log.d("SingleResponse",jsonArray.get(0).toString());*//*
+                      Constants.assesmentHomePOJOList= Arrays.asList(new Gson().fromJson(response, AssesmentHomePOJO[].class));
+                      syncronizedHomeAdapter=new SyncronizedHomeAdapter(getActivity(), Constants.assesmentHomePOJOList);
+                      mrecyclerView.setAdapter(syncronizedHomeAdapter);
+                      Constants.TASK_ID=Constants.assesmentHomePOJOList.get(0).getAssesmentTaskID();
+                      // assesmentHomePOJO=Constants.assesmentHomePOJOList.get(0);
+
+
+                  } catch (Exception e) {
+                      e.printStackTrace();
+                      Log.d("SyncException",e.toString());
+                  }
+
+              }
+          },false).execute();*/
+      }else {
+          syncronizedHomeAdapter=new SyncronizedHomeAdapter(getActivity(), Constants.workOrderPOJOList);
+          mrecyclerView.setAdapter(syncronizedHomeAdapter);
+      }
+      //  fetchData();
+
+
+        return rootView;
+    }
+    public void init(View rootView) {
+
+        mrecyclerView = rootView.findViewById(R.id.rv_sync_task_list);
+        mrecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+       // progressDialog = new ProgressDialog(getActivity(),R.style.AppCompatAlertDialogStyle);
+    }
+    AssesmentHomePOJO assesmentHomePOJO;
+
+
+    public void showProgressPopup() {
+        dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.prog_dialog_layout);
+        yesButton = dialog.findViewById(R.id.btn_ok);
+        titleText = dialog.findViewById(R.id.txt_title);
+        img = dialog.findViewById(R.id.img_ok);
+        progressbar = dialog.findViewById(R.id.progressbar);
+        yesButton.setText("OK");
+        yesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+   /* public void fetchData()
+    {
+        showProgressPopup();
+        SearchRequestModel searchRequestModel = new SearchRequestModel();
+        searchRequestModel.setTitle("");
+        searchRequestModel.setAssigenTo("");
+        searchRequestModel.setFromDate("");
+        searchRequestModel.setToDate("");
+        preferenceManager = PreferenceManager.getInstance(getActivity());
+        searchRequestModel.setUserName(preferenceManager.getUsername());
+        ApiServices apiServices = Network.getInstance().getApiServices();
+        final Call<List<SearchTaskListResponseModel>> loginResponseCall =
+                apiServices. postAllTask( "Bearer " + preferenceManager.getSessionToken(),"application/json", searchRequestModel);
+        loginResponseCall.enqueue(new Callback<List<SearchTaskListResponseModel>>() {
+            @Override
+            public void onResponse(Call<List<SearchTaskListResponseModel>> call, Response<List<SearchTaskListResponseModel>> response) {
+                try {
+                    // TODO NULL CHECK OF RESPONSE
+                    if (response.body() != null) {
+                        responseModel = response.body();
+                        callAfterResponse(responseModel);
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                yesButton.setVisibility(View.VISIBLE);
+                                img.setVisibility(View.VISIBLE);
+                                progressbar.setVisibility(View.GONE);
+                                titleText.setText("Download Completed");
+                            }
+                        }, 1000);
+                        progressDialog.dismiss();
+                    } else {
+                        Toast.makeText(getActivity(), response.errorBody().string().toString(), Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                    }
+
+                } catch (Exception e) {
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<SearchTaskListResponseModel>> call, Throwable t) {
+                t.printStackTrace();
+                System.out.println(t.getMessage() + t.getLocalizedMessage());
+                Toast.makeText(getActivity(), "failure" + t.getMessage() + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+            }
+        });
+
+
+    }
+    public void callAfterResponse(List<SearchTaskListResponseModel> response) {
+        adapter = new RVSyncTaskListAdapter(getActivity(), response);
+        mrecyclerView.setAdapter(adapter);
+        adapter.setClicklistner(this);
+
+
+
+
+    }
+    @Override
+    public void taskClick(Integer position) {
+        Bundle bundle = new Bundle();
+        bundle.putInt("taskId", responseModel.get(position).getTaskID());
+        TaskDetailFragment fragment = new TaskDetailFragment();
+        fragment.setArguments(bundle);
+        Toast.makeText(getContext(), ""+responseModel.get(position).getStatus(), Toast.LENGTH_SHORT).show();
+        getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, fragment, null).addToBackStack(null).commit();
+    }*/
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        getActivity().setTitle("Sync Data");
+
+    }
+}

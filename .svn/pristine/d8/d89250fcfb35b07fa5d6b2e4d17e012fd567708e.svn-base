@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/toolbar">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#e4e4e4"
+        android:clickable="true"
+        android:orientation="vertical"
+        tools:context="com.example.clearmobile.clearmobile.home.MainActivity">
+
+        <View
+            android:layout_width=".5dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:background="@color/black" />
+        <LinearLayout
+            android:id="@+id/ll_work_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WO Number"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/tv_swms_work_order_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WO Number"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black"
+                />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_task_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_work_order"
+            android:layout_marginTop="10dp"
+          >
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+
+</FrameLayout>
